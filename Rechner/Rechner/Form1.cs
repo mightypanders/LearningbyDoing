@@ -12,6 +12,7 @@ namespace Rechner
 {
     public partial class Form1 : Form
     {
+        public float ergebnis;
         public string _operator;
         public BorderStyle single = System.Windows.Forms.BorderStyle.FixedSingle;
         public BorderStyle none = System.Windows.Forms.BorderStyle.None;
@@ -22,57 +23,64 @@ namespace Rechner
         }
 
         private void btnRechnen_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {   if (label1.BorderStyle == none)
-            {
-                label1.BorderStyle = single;
-            }
-            else
-            {
-                label1.BorderStyle = none;
-            }
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-            if (label3.BorderStyle == none)
-            {
-                label3.BorderStyle = single;
-            }
-            else
-            {
-                label3.BorderStyle = none;
-            }
+        { float links, rechts;
+            links = float.Parse(this.textBox1.Text);
+            rechts = float.Parse(this.textBox2.Text);
             
+            switch (_operator)
+                {
+                case "+":
+                    ergebnis = links + rechts;
+                    break;
+                case "/":
+                    ergebnis = links / rechts;
+                    break;
+                case "x":
+                    ergebnis = links * rechts;
+                    break;
+                case "-":
+                    ergebnis = links - rechts;
+                    break;
+                default:
+                    break;
+                    
+            }
+            this.textBox3.Text = ergebnis.ToString();
         }
-
-        private void label2_Click(object sender, EventArgs e)
+        private void operatorchange(object sender, EventArgs e)
         {
-            if (label2.BorderStyle == none)
+            if (sender == this.lblplus)
             {
-                label2.BorderStyle = single;
+                _operator = "+";
+                this.lblplus.BorderStyle = single;
+                this.lblminus.BorderStyle = none;
+                this.lblmulti.BorderStyle = none;
+                this.lbldivi.BorderStyle = none;
             }
-            else
+            if (sender == this.lbldivi)
             {
-                label2.BorderStyle = none;
+                _operator = "/";
+                this.lbldivi.BorderStyle = single;
+                this.lblplus.BorderStyle = none;
+                this.lblmulti.BorderStyle = none;
+                this.lblminus.BorderStyle = none;
+            }
+            if (sender == this.lblminus)
+            {
+                _operator = "-";
+                this.lblminus.BorderStyle = single;
+                this.lblplus.BorderStyle = none;
+                this.lblmulti.BorderStyle = none;
+                this.lbldivi.BorderStyle = none;
+            }
+            if (sender == this.lblmulti)
+            {
+                _operator = "x";
+                this.lblmulti.BorderStyle = single;
+                this.lblminus.BorderStyle = none;
+                this.lbldivi.BorderStyle = none;
+                this.lblplus.BorderStyle = none;
             }
         }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-            if (label4.BorderStyle == none)
-            {
-                label4.BorderStyle = single;
-            }
-            else
-            {
-                label4.BorderStyle = none;
-            }
-        }
-       
     }
 }

@@ -30,10 +30,10 @@
         {
             this.btnRechnen = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblplus = new System.Windows.Forms.Label();
+            this.lblminus = new System.Windows.Forms.Label();
+            this.lblmulti = new System.Windows.Forms.Label();
+            this.lbldivi = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -56,46 +56,53 @@
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 1;
             // 
-            // label1
+            // lblplus
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(127, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(13, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "+";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lblplus.AutoSize = true;
+            this.lblplus.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblplus.Location = new System.Drawing.Point(127, 15);
+            this.lblplus.Name = "lblplus";
+            this.lblplus.Size = new System.Drawing.Size(13, 13);
+            this.lblplus.TabIndex = 2;
+            this.lblplus.Text = "+";
+            this.lblplus.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblplus.Click += new System.EventHandler(this.operatorchange);
             // 
-            // label2
+            // lblminus
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(127, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(13, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "--";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.lblminus.AutoSize = true;
+            this.lblminus.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblminus.Location = new System.Drawing.Point(127, 30);
+            this.lblminus.Name = "lblminus";
+            this.lblminus.Size = new System.Drawing.Size(13, 13);
+            this.lblminus.TabIndex = 3;
+            this.lblminus.Text = "--";
+            this.lblminus.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblminus.Click += new System.EventHandler(this.operatorchange);
             // 
-            // label3
+            // lblmulti
             // 
-            this.label3.AutoSize = true;
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Location = new System.Drawing.Point(146, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(14, 15);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "x";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.lblmulti.AutoSize = true;
+            this.lblmulti.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblmulti.Location = new System.Drawing.Point(146, 15);
+            this.lblmulti.Name = "lblmulti";
+            this.lblmulti.Size = new System.Drawing.Size(12, 13);
+            this.lblmulti.TabIndex = 4;
+            this.lblmulti.Text = "x";
+            this.lblmulti.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblmulti.Click += new System.EventHandler(this.operatorchange);
             // 
-            // label4
+            // lbldivi
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(146, 28);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(12, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "/";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.lbldivi.AutoSize = true;
+            this.lbldivi.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbldivi.Location = new System.Drawing.Point(146, 30);
+            this.lbldivi.Name = "lbldivi";
+            this.lbldivi.Size = new System.Drawing.Size(12, 13);
+            this.lbldivi.TabIndex = 5;
+            this.lbldivi.Text = "/";
+            this.lbldivi.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbldivi.Click += new System.EventHandler(this.operatorchange);
             // 
             // textBox2
             // 
@@ -129,10 +136,10 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbldivi);
+            this.Controls.Add(this.lblmulti);
+            this.Controls.Add(this.lblminus);
+            this.Controls.Add(this.lblplus);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnRechnen);
             this.Name = "Form1";
@@ -146,10 +153,10 @@
 
         private System.Windows.Forms.Button btnRechnen;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblplus;
+        private System.Windows.Forms.Label lblminus;
+        private System.Windows.Forms.Label lblmulti;
+        private System.Windows.Forms.Label lbldivi;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox3;
