@@ -9,12 +9,18 @@ namespace stundenplan
     class Tag
     {
         string wochentag;
+        Stunde[] Stundenarray = new Stunde[6];
         Stunde _s1;
         Stunde _s2;
         Stunde _s3;
         Stunde _s4;
         Stunde _s5;
         Stunde _s6;
+        public Tag (string WT, Stunde[] arr)
+        {
+            wochentag = WT;
+            Stundenarray = arr;
+        }
         public Tag (string WT, Stunde s1, Stunde s2, Stunde s3, Stunde s4, Stunde s5, Stunde s6)
         {
             wochentag = WT;
@@ -54,14 +60,24 @@ namespace stundenplan
     {
         static void Main(string[] args)
         {
-            Stunde AW = new Stunde("AW","Wittek","HNN 106");
-            Stunde IT = new Stunde("IT", "Forck", "HNE 303");
-            Stunde WG = new Stunde("WG", "Wingold", "HNE 202");
-           
+            StundenAnlegen();
+            TagFuellen();
             
             
             Console.WriteLine("________");
             Console.ReadKey();
+        }
+        public static void StundenAnlegen()
+        {
+            Stunde AW = new Stunde("AW", "Wittek", "HNN 106");
+            Stunde IT = new Stunde("IT", "Forck", "HNE 303");
+            Stunde WG = new Stunde("WG", "Wingold", "HNE 202");
+
+        }
+        public static void TagFuellen()
+        {
+
+            return;
         }
     }
 }
