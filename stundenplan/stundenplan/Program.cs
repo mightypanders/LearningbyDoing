@@ -9,13 +9,25 @@ namespace stundenplan
     class Tag
     {
         string wochentag;
-        Stunde s1;
-        Stunde s2;
-        Stunde s3;
-        Stunde s4;
-        Stunde s5;
-  //      public Tag (string WT; Stunde s1
-    }
+        Stunde _s1;
+        Stunde _s2;
+        Stunde _s3;
+        Stunde _s4;
+        Stunde _s5;
+        Stunde _s6;
+        public Tag (string WT, Stunde s1, Stunde s2, Stunde s3, Stunde s4, Stunde s5, Stunde s6)
+        {
+            wochentag = WT;
+            _s1 = s1;
+            _s2 = s2;
+            _s3 = s3;
+            _s4 = s4;
+            _s5 = s5;
+            _s6 = s6;
+        }
+            
+            
+}
     class Stunde 
     {   
         #region Member
@@ -43,9 +55,7 @@ namespace stundenplan
         static void Main(string[] args)
         {
             Stunde AW = new Stunde("AW","Wittek","HNN 106");
-            
             Stunde IT = new Stunde("IT", "Forck", "HNE 303");
-           
             Stunde WG = new Stunde("WG", "Wingold", "HNE 202");
            
             
