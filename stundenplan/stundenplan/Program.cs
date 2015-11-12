@@ -31,7 +31,16 @@ namespace stundenplan
             _s5 = s5;
             _s6 = s6;
         }
-            
+        public void Tagausgeben()
+        {
+            Console.WriteLine(wochentag);
+            _s1.druckeStunde();
+            _s2.druckeStunde();
+            _s3.druckeStunde();
+            _s4.druckeStunde();
+            _s5.druckeStunde();
+            _s6.druckeStunde();
+        } 
             
 }
     class Stunde 
@@ -58,25 +67,26 @@ namespace stundenplan
     }
     class Program
     {
+        static Stunde AW = new Stunde("AW", "Wittek", "HNN 106");
+        static Stunde IT = new Stunde("IT", "Forck", "HNE 303");
+        static Stunde WGW = new Stunde("WG", "Wingold", "HNE 202");
+        static Stunde WGA = new Stunde("WG", "Abel", "HNE205");
+        static Stunde DE = new Stunde("DE", "Trieber-Schreyer", "HNN202");
         static void Main(string[] args)
         {
-            StundenAnlegen();
-            TagFuellen();
-            
-            
-            Console.WriteLine("________");
+           
+            Tag mon = new Tag("Montag", AW, AW, IT, WGW, WGW, WGW);
+            Tag die = new Tag("Dienstag", IT, IT, DE, DE, WGA, WGA);
+            WocheAusgeben(mon, die);
             Console.ReadKey();
+            
+          
         }
-        public static void StundenAnlegen()
+        
+        public static void WocheAusgeben(Tag mon, Tag die)
         {
-            Stunde AW = new Stunde("AW", "Wittek", "HNN 106");
-            Stunde IT = new Stunde("IT", "Forck", "HNE 303");
-            Stunde WG = new Stunde("WG", "Wingold", "HNE 202");
-
-        }
-        public static void TagFuellen()
-        {
-
+            mon.Tagausgeben();
+            die.Tagausgeben();
             return;
         }
     }
