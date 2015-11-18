@@ -11,12 +11,16 @@ namespace stundenplan
         #region member
         string wochentag;
         Stunde[] Stundenarray = new Stunde[6];
-        Stunde _s1;
-        Stunde _s2;
-        Stunde _s3;
-        Stunde _s4;
-        Stunde _s5;
-        Stunde _s6;
+
+        #region obsoleted
+        //Stunde _s1;
+        //Stunde _s2;
+        //Stunde _s3;
+        //Stunde _s4;
+        //Stunde _s5;
+        //Stunde _s6;
+        #endregion
+
         #endregion
 
         #region Konstruktoren
@@ -28,12 +32,12 @@ namespace stundenplan
         public Tag (string WT, Stunde s1, Stunde s2, Stunde s3, Stunde s4, Stunde s5, Stunde s6)
         {
             wochentag = WT;
-            _s1 = s1;
-            _s2 = s2;
-            _s3 = s3;
-            _s4 = s4;
-            _s5 = s5;
-            _s6 = s6;
+            Stundenarray[0] = s1;
+            Stundenarray[1] = s2;
+            Stundenarray[2] = s3;
+            Stundenarray[3] = s4;
+            Stundenarray[4] = s5;
+            Stundenarray[5] = s6;
         }
         #endregion
 
@@ -41,12 +45,10 @@ namespace stundenplan
         public void Tagausgeben()
         {
             Console.WriteLine(wochentag);
-            _s1.druckeStunde();
-            _s2.druckeStunde();
-            _s3.druckeStunde();
-            _s4.druckeStunde();
-            _s5.druckeStunde();
-            _s6.druckeStunde();
+            for (int i = 0; i < Stundenarray.Length; i++)
+            {
+                Stundenarray[i].druckeStunde();
+            }
         }
         #endregion
 
@@ -98,6 +100,7 @@ namespace stundenplan
            
             Tag mon = new Tag("Montag", AW, AW, IT, WGW, WGW, WGW);
             Tag die = new Tag("Dienstag", IT, IT, DE, DE, WGA, WGA);
+            //Tag mit = new Tag("Mittwoch",)
             WocheAusgeben(mon, die);
             Console.ReadKey();          
         } 
