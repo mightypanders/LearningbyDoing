@@ -16,4 +16,12 @@ namespace GameControls
             return globalID;
         }
     }
+    class gamestate
+    {
+        protected bool _state;
+        public bool getState()
+        {
+            return _state;
+        }
+    }
 }

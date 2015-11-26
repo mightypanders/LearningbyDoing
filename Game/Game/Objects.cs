@@ -18,7 +18,6 @@ namespace Game
             _name = null;
             _uID = 0;
         }
-
         public Objects(string name, Identifier ID)
         {
             _name = name;
@@ -45,7 +44,6 @@ namespace Game
             _uID = ID.getuID();
         }
     }
-
     class Player : Objects
     {
         protected short _playernumber;
