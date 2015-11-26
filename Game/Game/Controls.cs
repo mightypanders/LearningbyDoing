@@ -19,9 +19,11 @@ namespace GameControls
     class gamestate
     {
         protected bool _state;
-        public bool getState()
+       
+        public bool state
         {
-            return _state;
+            get { return _state; }
+            set { _state = value; }
         }
     }
 }

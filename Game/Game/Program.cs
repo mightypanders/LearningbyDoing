@@ -12,9 +12,9 @@ namespace Game
 
         static void Main(string[] args)
         {
-            bool gamestate = true;
+            gamestate GS = new gamestate();
             Identifier MainID = new Identifier();
-            while (gamestate)
+            while (GS.state)
             {
 
             }
