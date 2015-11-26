@@ -18,7 +18,7 @@ namespace GameControls
     }
     class gamestate
     {
-        protected bool _state;
+        protected bool _state = true;
        
         public bool state
         {
@@ -26,4 +26,12 @@ namespace GameControls
             set { _state = value; }
         }
     }
+    class Init
+    {
+        public void PlayersInit(int spielerzahl)
+        {
+
+        }
+    }
+    
 }

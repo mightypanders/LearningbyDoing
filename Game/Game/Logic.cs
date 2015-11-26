@@ -8,5 +8,14 @@ namespace Game
 {
     class Logic
     {
+        public Logic()
+        {
+
+        }
+
+        public void LoopStep()
+        {
+            
+        }
     }
 }
