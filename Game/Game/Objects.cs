@@ -8,6 +8,8 @@ using GameControls;
 
 namespace Game
 {
+    //introducing a change
+
     class Objects
     {
         protected string _name;
@@ -22,7 +24,7 @@ namespace Game
         {
             _name = name;
             _uID = ID.getuID();
-            
+
         }
     }
     class PowerUps : Objects
@@ -55,7 +57,7 @@ namespace Game
 
         public Player()
         {
-            
+
         }
         public Player(string name, short playernumber, string color, PowerUps[] powerups, short lives, short wins, short losses)
         {
@@ -70,5 +72,5 @@ namespace Game
 
     }
 
-    
+
 }
