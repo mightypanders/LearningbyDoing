@@ -16,11 +16,11 @@ namespace Game
 
         static void Main(string[] args)
         {
-            GS = new gamestate();
-            Identifier MainID = new Identifier();
             Init init = new Init();
-            logic = new Logic(3);
-            init.PlayersInit(Playercount);
+            GS = new gamestate();
+            Identifier ID = init.IDInit();            
+            logic = new Logic();
+            init.PlayersInit(Playercount, ID);
             gameloop();
 
         }

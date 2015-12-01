@@ -8,10 +8,10 @@ namespace Game
 {
     class Logic
     {
-        protected int logint = 1;
-        public Logic(int log)
+        
+        public Logic()
         {
-            logint = log;
+            
         }
 
         public void LoopStep()

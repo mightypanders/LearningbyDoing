@@ -31,27 +31,22 @@ namespace GameControls
     {
         Player[] playArr;
         Player temp;
-        public void PlayersInit(short spielerzahl)
+        public void PlayersInit(short spielerzahl, Identifier ID)
         { short nummer;
             playArr = new Player[spielerzahl];
             for (short i = 0; i < spielerzahl; i++)
             {
                 nummer = (short)(i + 1);
-                temp = new Player("", nummer , "", null, 1, 0, 0, 0, 0);
+                temp = new Player(ID,"", nummer , "", null, 1, 0, 0, 0, 0);
                 playArr[i] = temp;
                 temp = null;
             }
         }
-#if DEBUG
-        public void printPlayers()
+        public Identifier IDInit()
         {
-            for (int i = 0; i < playArr.Length; i++)
-            {
-                temp = playArr[i];
-                Console.WriteLine(temp.playernumber);
-            }
+            Identifier ID = new Identifier();
+            return ID;
         }
-#endif
     }
     
 }
