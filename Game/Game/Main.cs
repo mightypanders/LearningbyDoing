@@ -12,14 +12,17 @@ namespace Game
     {
         static gamestate GS;
         static Logic logic;
+        static short Playercount = 4;
 
         static void Main(string[] args)
         {
             GS = new gamestate();
             Identifier MainID = new Identifier();
             Init init = new Init();
-            init.PlayersInit(3);
+            logic = new Logic(3);
+            init.PlayersInit(Playercount);
             gameloop();
+
         }
 
         static void gameloop()
@@ -30,5 +33,6 @@ namespace Game
 
             }
         }
+       
     }
 }

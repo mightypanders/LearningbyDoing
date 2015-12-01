@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Game;
 
 namespace GameControls
 {
@@ -28,10 +29,29 @@ namespace GameControls
     }
     class Init
     {
-        public void PlayersInit(int spielerzahl)
-        {
-
+        Player[] playArr;
+        Player temp;
+        public void PlayersInit(short spielerzahl)
+        { short nummer;
+            playArr = new Player[spielerzahl];
+            for (short i = 0; i < spielerzahl; i++)
+            {
+                nummer = (short)(i + 1);
+                temp = new Player("", nummer , "", null, 1, 0, 0, 0, 0);
+                playArr[i] = temp;
+                temp = null;
+            }
         }
+#if DEBUG
+        public void printPlayers()
+        {
+            for (int i = 0; i < playArr.Length; i++)
+            {
+                temp = playArr[i];
+                Console.WriteLine(temp.playernumber);
+            }
+        }
+#endif
     }
     
 }

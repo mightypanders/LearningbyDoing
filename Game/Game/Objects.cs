@@ -54,12 +54,14 @@ namespace Game
         protected short _lives;
         protected short _wins;
         protected short _losses;
+        protected int _posX;
+        protected int _posY;
 
         public Player()
         {
 
         }
-        public Player(string name, short playernumber, string color, PowerUps[] powerups, short lives, short wins, short losses)
+        public Player(string name, short playernumber, string color, PowerUps[] powerups, short lives, short wins, short losses, int posX, int posY)
         {
             _name = name;
             _playernumber = playernumber;
@@ -68,7 +70,14 @@ namespace Game
             _lives = lives;
             _wins = wins;
             _losses = losses;
+            _posX = posX;
+            _posY = posY;
         }
+
+        public short playernumber { 
+            get { return _playernumber; }
+            set { _playernumber = value; }
+       }
 
     }
 
