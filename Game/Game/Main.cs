@@ -19,8 +19,8 @@ namespace Game
             Identifier MainID = new Identifier();
             Init init = new Init();
             init.PlayersInit(3);
-            gameloop();           
-        } 
+            gameloop();
+        }
 
         static void gameloop()
         {

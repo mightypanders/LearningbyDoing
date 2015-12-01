@@ -15,7 +15,7 @@ namespace Game
 
         public void LoopStep()
         {
-            
+
         }
     }
 }
