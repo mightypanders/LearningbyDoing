@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GameControls;
+using Game;
 
 namespace Game
 {
     class MainLoop
     {
         static gamestate GS;
+        static Logic logic;
 
         static void Main(string[] args)
         {
@@ -24,6 +26,7 @@ namespace Game
         {
             while (GS.state)
             {
+                logic.LoopStep();
 
             }
         }
