@@ -33,10 +33,7 @@ namespace Game
         protected float _factor;
         protected int _amount;
 
-        public PowerUps()
-        {
-
-        }
+        
         public PowerUps(Identifier ID, string name, string title, float factor, int amount) 
         {
             _uID = ID.getuID();
@@ -59,11 +56,7 @@ namespace Game
         protected int _posX;
         protected int _posY;
 
-        public Player()
-        {
-
-        }
-        public Player(Identifier ID, string name, short playernumber, string color, PowerUps[] powerups, short lives, short wins, short losses, int posX, int posY)
+       public Player(Identifier ID, string name, short playernumber, string color, PowerUps[] powerups, short lives, short wins, short losses, int posX, int posY)
         {
             _uID = ID.getuID();
             _name = name;
