@@ -16,13 +16,9 @@ namespace Game
         [MTAThread]
         static void Main(string[] args)
         {
-            Init init = new Init();
+            
             GS = new gamestate();
-            Identifier ID = init.IDInit();            
-            logic = new Logic();
-
-            Playercount = init.askPlayerCount();
-            init.PlayersInit(Playercount, ID);
+            initialize();
             
             gameloop();
 
@@ -35,6 +31,17 @@ namespace Game
                 logic.LoopStep();
 
             }
+        }
+
+        static bool initialize()
+        {
+            Init init = new Init();
+            Identifier ID = init.IDInit();
+            logic = new Logic();
+
+            Playercount = init.askPlayerCount();
+            init.PlayersInit(Playercount, ID);
+            return true;
         }
        
     }
