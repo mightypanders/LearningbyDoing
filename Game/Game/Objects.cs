@@ -74,6 +74,12 @@ namespace Game
             get { return _playernumber; }
             set { _playernumber = value; }
        }
+        public bool movePlayer (int plusx, int plusy)
+        {
+
+
+            return true;
+        }
 
     }
 

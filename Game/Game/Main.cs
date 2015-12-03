@@ -12,15 +12,18 @@ namespace Game
     {
         static gamestate GS;
         static Logic logic;
-        static short Playercount = 4;
-
+        static short Playercount = 0;
+        [MTAThread]
         static void Main(string[] args)
         {
             Init init = new Init();
             GS = new gamestate();
             Identifier ID = init.IDInit();            
             logic = new Logic();
+
+            Playercount = init.askPlayerCount();
             init.PlayersInit(Playercount, ID);
+            
             gameloop();
 
         }

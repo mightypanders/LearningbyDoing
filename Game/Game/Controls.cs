@@ -32,12 +32,18 @@ namespace GameControls
         Player[] playArr;
         Player temp;
         public void PlayersInit(short spielerzahl, Identifier ID)
-        { short nummer;
+        {
+            string pcolor="";
+            string pname="";
+            short nummer=0;
             playArr = new Player[spielerzahl];
             for (short i = 0; i < spielerzahl; i++)
             {
                 nummer = (short)(i + 1);
-                temp = new Player(ID,"", nummer , "", null, 1, 0, 0, 0, 0);
+                pname = askPlayername(nummer);
+                pcolor = askColor(nummer);
+
+                temp = new Player(ID,pname, nummer , pcolor, null, 1, 0, 0, 0, 0);
                 playArr[i] = temp;
                 temp = null;
             }
@@ -46,6 +52,26 @@ namespace GameControls
         {
             Identifier ID = new Identifier();
             return ID;
+        }
+
+        public string askPlayername(short Pnumber)
+        {
+            Console.WriteLine("Bitte geben sie einen Namen für Spieler"+Pnumber+" ein");
+            string pname = Console.ReadLine();
+            return pname;
+        }
+        public string askColor(short Pnumber)
+        {
+            Console.WriteLine("Bitte geben sie eine Farbe für Spieler"+Pnumber+" ein");
+            string pcolor = Console.ReadLine();
+            return pcolor;
+        }
+
+        public short askPlayerCount()
+        {
+            Console.WriteLine("Bitte geben sie an wie viele Spieler teilnehmen.");
+            short pcount = short.Parse(Console.ReadLine());
+            return pcount;
         }
     }
     
