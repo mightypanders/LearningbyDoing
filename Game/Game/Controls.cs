@@ -27,11 +27,11 @@ namespace GameControls
             set { _state = value; }
         }
     }
-    class Init
+    static class Init
     {
-        Player[] playArr;
-        Player temp;
-        public void PlayersInit(short spielerzahl, Identifier ID)
+       static Player[] playArr;
+        static Player temp;
+        public static void PlayersInit(short spielerzahl, Identifier ID)
         {
             string pcolor="";
             string pname="";
@@ -48,26 +48,26 @@ namespace GameControls
                 temp = null;
             }
         }
-        public Identifier IDInit()
+        public static Identifier IDInit()
         {
             Identifier ID = new Identifier();
             return ID;
         }
 
-        public string askPlayername(short Pnumber)
+        public static string askPlayername(short Pnumber)
         {
             Console.WriteLine("Bitte geben sie einen Namen für Spieler"+Pnumber+" ein");
             string pname = Console.ReadLine();
             return pname;
         }
-        public string askColor(short Pnumber)
+        public static string askColor(short Pnumber)
         {
             Console.WriteLine("Bitte geben sie eine Farbe für Spieler"+Pnumber+" ein");
             string pcolor = Console.ReadLine();
             return pcolor;
         }
 
-        public short askPlayerCount()
+        public static short askPlayerCount()
         {
             Console.WriteLine("Bitte geben sie an wie viele Spieler teilnehmen.");
             short pcount = short.Parse(Console.ReadLine());

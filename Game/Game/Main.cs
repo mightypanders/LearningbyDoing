@@ -36,12 +36,12 @@ namespace Game
 
         static bool initialize()
         {
-            Init init = new Init();
-            Identifier ID = init.IDInit();
+            //Init init = new Init();
+            Identifier ID = Init.IDInit();
             logic = new Logic();
 
-            Playercount = init.askPlayerCount();
-            init.PlayersInit(Playercount, ID);
+            Playercount = Init.askPlayerCount();
+            Init.PlayersInit(Playercount, ID);
             return true;
         }
 
