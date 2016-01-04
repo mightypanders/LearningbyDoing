@@ -11,16 +11,6 @@ namespace stundenplan
         #region member
         string wochentag;
         Stunde[] Stundenarray = new Stunde[6];
-
-        #region obsoleted
-        //Stunde _s1;
-        //Stunde _s2;
-        //Stunde _s3;
-        //Stunde _s4;
-        //Stunde _s5;
-        //Stunde _s6;
-        #endregion
-
         #endregion
 
         #region Konstruktoren
@@ -48,12 +38,10 @@ namespace stundenplan
             for (int i = 0; i < Stundenarray.Length; i++)
             {
                 Stundenarray[i].druckeStunde();
-
             }
             Console.WriteLine(" ");
         }
         #endregion
-
     }
     class Stunde
     {
@@ -75,11 +63,7 @@ namespace stundenplan
         #region funktionen
         public void druckeStunde()
         {
-            //Console.WriteLine("________");
             Console.WriteLine(_fach + " " + _raum + " " + _lehrer);
-            //Console.WriteLine(_lehrer);
-            //Console.WriteLine(_raum);
-
         }
         #endregion
     }
@@ -96,11 +80,9 @@ namespace stundenplan
             this.Wochennummer = Wochennummer;
             this.Tagesarray = Tagesarray;
         }
-
         #endregion
 
         #region Methoden
-
         public void WocheDrucken()
         {
             for (int i = 0; i < Tagesarray.Length; i++)
@@ -112,7 +94,6 @@ namespace stundenplan
     }
     class Program
     {
-
         static Stunde AW = new Stunde("AW", "Wittek", "HNN 106");
         static Stunde IT = new Stunde("IT", "Forck", "HNE 303");
         static Stunde WGW = new Stunde("WG", "Wingold", "HNE 202");
@@ -122,14 +103,11 @@ namespace stundenplan
         static Stunde WGE = new Stunde("WG", "Engels", "HNE 303");
         static Stunde EN = new Stunde("EN", "Mühlenhoff", "HNE 203");
 
-
         static void Main(string[] args)
         {
             Tag[] Tage = TageAnlegen();
             Woche W = new Woche(1, Tage);
             W.WocheDrucken();
-            //Tag mit = new Tag("Mittwoch",)
-
             Console.ReadKey();
         }
         public static Tag[] TageAnlegen()
