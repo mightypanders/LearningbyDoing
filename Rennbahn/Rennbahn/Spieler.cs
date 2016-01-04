@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Rennbahn
 {
-    class Spieler
+    public class Spieler
     {
         public string name;
+        public int nummer;
         public Wette MeineWette;
         public int Geld;
+        public Label MeinLabel;
 
-        public Spieler(string name, Wette MeineWette, int Geld)
+        public Spieler(string name, int nummer, Wette MeineWette, int Geld)
         {
             this.name = name;
             this.MeineWette = MeineWette;
@@ -21,7 +24,7 @@ namespace Rennbahn
 
         public void LabelAktualisieren()
         {
-            
+            Form1.spLabelaktualisieren(this);
         }
         public void WetteLoeschen()
         {

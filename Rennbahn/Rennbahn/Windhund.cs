@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Rennbahn
 {
-    class Windhund
+    public class Windhund
     {
         public int Startposition;
         public int Rennbahnlaenge;

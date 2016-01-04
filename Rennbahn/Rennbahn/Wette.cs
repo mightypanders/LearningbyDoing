@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Rennbahn
 {
-    class Wette
+    public class Wette
     {
         public int Betrag;
         public int Hund;
