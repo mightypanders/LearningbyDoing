@@ -13,13 +13,14 @@ namespace Game
         static gamestate GS;
         static Logic logic;
         static short Playercount = 0;
+
         [MTAThread]
         static void Main(string[] args)
         {
-            
+
             GS = new gamestate();
             initialize();
-            
+
             gameloop();
 
         }
@@ -43,6 +44,6 @@ namespace Game
             Init.PlayersInit(Playercount, ID);
             return true;
         }
-       
+
     }
 }
