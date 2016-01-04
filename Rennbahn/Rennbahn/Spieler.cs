@@ -21,7 +21,7 @@ namespace Rennbahn
 
         public void LabelAktualisieren()
         {
-
+            
         }
         public void WetteLoeschen()
         {
