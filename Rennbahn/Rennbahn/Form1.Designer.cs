@@ -183,8 +183,10 @@
             this.rb_3.Size = new System.Drawing.Size(42, 17);
             this.rb_3.TabIndex = 3;
             this.rb_3.TabStop = true;
+            this.rb_3.Tag = "2";
             this.rb_3.Text = "Jan";
             this.rb_3.UseVisualStyleBackColor = true;
+            this.rb_3.CheckedChanged += new System.EventHandler(this.RBCheck);
             // 
             // rb_2
             // 
@@ -194,8 +196,10 @@
             this.rb_2.Size = new System.Drawing.Size(46, 17);
             this.rb_2.TabIndex = 2;
             this.rb_2.TabStop = true;
+            this.rb_2.Tag = "1";
             this.rb_2.Text = "Tom";
             this.rb_2.UseVisualStyleBackColor = true;
+            this.rb_2.CheckedChanged += new System.EventHandler(this.RBCheck);
             // 
             // rb_1
             // 
@@ -205,8 +209,10 @@
             this.rb_1.Size = new System.Drawing.Size(42, 17);
             this.rb_1.TabIndex = 1;
             this.rb_1.TabStop = true;
+            this.rb_1.Tag = "0";
             this.rb_1.Text = "Tim";
             this.rb_1.UseVisualStyleBackColor = true;
+            this.rb_1.CheckedChanged += new System.EventHandler(this.RBCheck);
             // 
             // label1
             // 

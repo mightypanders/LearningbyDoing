@@ -14,38 +14,18 @@ namespace Rennbahn
     {
         public Spieler[] spArr;
         public Windhund[] whArr;
+        public Spieler Wetter;
         public Form1()
         {
             InitializeComponent();
             spielerAnlegen();
             windhundeAnlegen();
         }
-
-
-        public static void spLabelaktualisieren(Spieler p)
-        {
-            switch (p.nummer)
-            {
-                //case 1:
-                //    rb_1.Text = p.name + " hat " + p.Geld + "€";
-                //    lbl_wette1.Text = p.name + " wettet " + p.MeineWette.Betrag + " € auf Hund " + p.MeineWette.Hund;
-                //    break;
-                //case 2:
-                //    rb_2.Text = p.name + " hat " + p.Geld + "€";
-                //    lbl_wette2.Text = p.name + " wettet " + p.MeineWette.Betrag + " € auf Hund " + p.MeineWette.Hund;
-                //    break;
-                //case 3:
-                //    rb_3.Text = p.name + " hat " + p.Geld + "€";
-                //    lbl_wette3.Text = p.name + " wettet " + p.MeineWette.Betrag + " € auf Hund " + p.MeineWette.Hund;
-                //    break;
-                //default:
-                //    break;
-            }
-        }
-
         private void btn_wettet_Click(object sender, EventArgs e)
         {
-
+            Wetter.WetteAbgeben((int)numericUpDown1.Value, (int)numericUpDown2.Value);
+            Wetter.LabelAktualisieren();
+            this.Refresh();
         }
 
         #region Anlegen
@@ -53,9 +33,9 @@ namespace Rennbahn
         {
 
             spArr = new Spieler[3];
-            spArr[0] = new Spieler("Tim", 1, 45);
-            spArr[1] = new Spieler("Tom", 2, 50);
-            spArr[2] = new Spieler("John", 3, 60);
+            spArr[0] = new Spieler("Tim", 1, 45, this.lbl_wette1, this.rb_1);
+            spArr[1] = new Spieler("Tom", 2, 50, this.lbl_wette2, this.rb_2);
+            spArr[2] = new Spieler("John", 3, 60, this.lbl_wette3, this.rb_3);
 
         }
         public void windhundeAnlegen()
@@ -69,5 +49,11 @@ namespace Rennbahn
         }
         #endregion
 
+
+        private void RBCheck(object sender, EventArgs e)
+        {
+            Wetter = spArr[int.Parse(((RadioButton)sender).Tag.ToString())];
+            label2.Text = spArr[int.Parse(((RadioButton)sender).Tag.ToString())].name;
+        }
     }
 }
