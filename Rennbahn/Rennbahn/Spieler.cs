@@ -14,6 +14,7 @@ namespace Rennbahn
         public Wette MeineWette;
         public int Geld;
         public Label MeinLabel;
+        public RadioButton MeinRadioButton;
 
         public Spieler(string name, int nummer, Wette MeineWette, int Geld)
         {
@@ -24,17 +25,20 @@ namespace Rennbahn
 
         public void LabelAktualisieren()
         {
+            this.MeinLabel.Text = this.name + " wettet " + this.MeineWette.Betrag.ToString() + " auf Hund " + this.MeineWette.Hund.ToString();
+            this.MeinRadioButton.Text = this.name + " hat " + this.Geld.ToString() + "€";
             Form1.spLabelaktualisieren(this);
         }
         public void WetteLoeschen()
         {
-
+            MeineWette.Betrag = MeineWette.Hund = 0;
         }
         public bool WetteAbgeben(int betrag, int hund)
         {
             if (betrag < Geld)
                 if (betrag != 0 && hund != 0)
                 {
+                    MeineWette.Wetter.name = name;
                     MeineWette.Betrag = betrag;
                     MeineWette.Hund = hund;
                 }
@@ -42,7 +46,7 @@ namespace Rennbahn
         }
         public void Einkassieren(int sieger)
         {
-
+            MeineWette.Auszahlen(sieger);
         }
     }
 }

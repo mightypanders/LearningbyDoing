@@ -24,7 +24,13 @@ namespace Rennbahn
         }
         public int Auszahlen(int sieger)
         {
-            return 0;
+            if (Wetter.MeineWette.Hund == sieger)
+            {
+                return Wetter.MeineWette.Betrag * 2;
+            }
+            else {
+                return Wetter.MeineWette.Betrag * -1;
+            }
         }
     }
 }

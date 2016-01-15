@@ -9,13 +9,14 @@ namespace Rennbahn
 {
     public class Windhund
     {
+        public int nummer;
         public int Startposition;
         public int Rennbahnlaenge;
         public PictureBox Bild = null;
         public int Ort = 0;
         public Random Zufallszahl = new Random();
 
-        public Windhund(int Startposition, int Rennbahnlaenge, PictureBox Bild, int Ort)
+        public Windhund(int nummer, int Startposition, int Rennbahnlaenge, PictureBox Bild, int Ort)
         {
 
         }
