@@ -16,10 +16,10 @@ namespace Rennbahn
         public Label MeinLabel;
         public RadioButton MeinRadioButton;
 
-        public Spieler(string name, int nummer, Wette MeineWette, int Geld)
+        public Spieler(string name, int nummer, int Geld)
         {
             this.name = name;
-            this.MeineWette = MeineWette;
+            this.MeineWette = new Wette(0, 0, this);
             this.Geld = Geld;
         }
 
@@ -38,7 +38,7 @@ namespace Rennbahn
             if (betrag < Geld)
                 if (betrag != 0 && hund != 0)
                 {
-                    MeineWette.Wetter.name = name;
+
                     MeineWette.Betrag = betrag;
                     MeineWette.Hund = hund;
                 }
