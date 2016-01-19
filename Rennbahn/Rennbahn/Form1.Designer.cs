@@ -34,7 +34,7 @@
             this.lbl_wette2 = new System.Windows.Forms.Label();
             this.lbl_wette1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_Rennen = new System.Windows.Forms.Button();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -66,7 +66,7 @@
             this.gB_wettbuero.Controls.Add(this.lbl_wette2);
             this.gB_wettbuero.Controls.Add(this.lbl_wette1);
             this.gB_wettbuero.Controls.Add(this.label4);
-            this.gB_wettbuero.Controls.Add(this.button2);
+            this.gB_wettbuero.Controls.Add(this.btn_Rennen);
             this.gB_wettbuero.Controls.Add(this.numericUpDown2);
             this.gB_wettbuero.Controls.Add(this.label3);
             this.gB_wettbuero.Controls.Add(this.numericUpDown1);
@@ -123,15 +123,16 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Wetten";
             // 
-            // button2
+            // btn_Rennen
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(573, 53);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(124, 71);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Rennen!";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_Rennen.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.btn_Rennen.Location = new System.Drawing.Point(573, 53);
+            this.btn_Rennen.Name = "btn_Rennen";
+            this.btn_Rennen.Size = new System.Drawing.Size(124, 71);
+            this.btn_Rennen.TabIndex = 9;
+            this.btn_Rennen.Text = "Rennen!";
+            this.btn_Rennen.UseVisualStyleBackColor = true;
+            this.btn_Rennen.Click += new System.EventHandler(this.btn_Rennen_Click);
             // 
             // numericUpDown2
             // 
@@ -250,7 +251,7 @@
         private System.Windows.Forms.Label lbl_wette2;
         private System.Windows.Forms.Label lbl_wette1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_Rennen;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown numericUpDown1;

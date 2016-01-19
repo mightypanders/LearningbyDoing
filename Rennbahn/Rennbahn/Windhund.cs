@@ -18,13 +18,24 @@ namespace Rennbahn
 
         public Windhund(int nummer, int Startposition, int Rennbahnlaenge, PictureBox Bild, int Ort)
         {
+            this.nummer = nummer;
+            this.Startposition = Startposition;
+            this.Rennbahnlaenge = Rennbahnlaenge;
+            this.Bild = Bild;
+            this.Ort = Ort;
 
         }
         public bool Laufen()
         {
-            this.Ort = Zufallszahl.Next(1, 5);
-            return true;
+            if (this.Ort < this.Rennbahnlaenge)
+            {
+                this.Ort = Zufallszahl.Next(1, 5);
+                return true;
+            }
+            else { return false; }
+
         }
+
 
         public void StartposEinnehmen()
         {

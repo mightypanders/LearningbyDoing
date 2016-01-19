@@ -15,7 +15,9 @@ namespace Rennbahn
         public Spieler[] spArr;
         public Windhund[] whArr;
         public Spieler Wetter;
+        public int Rennbahnlaenge = 100;
         public Form1()
+
         {
             InitializeComponent();
             spielerAnlegen();
@@ -41,10 +43,10 @@ namespace Rennbahn
         public void windhundeAnlegen()
         {
             whArr = new Windhund[4];
-            whArr[0] = new Windhund(1, 0, 0, null, 0);
-            whArr[1] = new Windhund(2, 0, 0, null, 0);
-            whArr[2] = new Windhund(3, 0, 0, null, 0);
-            whArr[3] = new Windhund(4, 0, 0, null, 0);
+            whArr[0] = new Windhund(1, 0, Rennbahnlaenge, null, 0);
+            whArr[1] = new Windhund(2, 0, Rennbahnlaenge, null, 0);
+            whArr[2] = new Windhund(3, 0, Rennbahnlaenge, null, 0);
+            whArr[3] = new Windhund(4, 0, Rennbahnlaenge, null, 0);
 
         }
         #endregion
@@ -54,6 +56,23 @@ namespace Rennbahn
         {
             Wetter = spArr[int.Parse(((RadioButton)sender).Tag.ToString())];
             label2.Text = spArr[int.Parse(((RadioButton)sender).Tag.ToString())].name;
+        }
+
+        private void btn_Rennen_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < whArr.Length; i++)
+            {
+                if (whArr[i].Laufen())
+                {
+                    //move graphics
+                    MessageBox.Show("hier passiert laufen");
+                }
+                else
+                {
+
+                    break;
+                }
+            }
         }
     }
 }
