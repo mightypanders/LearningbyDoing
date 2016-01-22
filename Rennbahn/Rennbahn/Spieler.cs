@@ -27,9 +27,16 @@ namespace Rennbahn
         }
         public void LabelAktualisieren()
         {
+            lblWetteaktualisieren();
+            lblGeldaktualisieren();
+        }
+        public void lblWetteaktualisieren()
+        {
             this.MeinLabel.Text = this.name + " wettet " + this.MeineWette.Betrag.ToString() + " auf Hund " + this.MeineWette.Hund.ToString();
+        }
+        public void lblGeldaktualisieren()
+        {
             this.MeinRadioButton.Text = this.name + " hat " + this.Geld.ToString() + "€";
-
         }
         public void WetteLoeschen()
         {
@@ -49,7 +56,10 @@ namespace Rennbahn
         }
         public void Einkassieren(int sieger)
         {
-            MeineWette.Auszahlen(sieger);
+
+            this.Geld += MeineWette.Auszahlen(sieger);
+            WetteLoeschen();
+            LabelAktualisieren();
         }
     }
 }

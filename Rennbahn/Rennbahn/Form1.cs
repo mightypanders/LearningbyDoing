@@ -21,7 +21,7 @@ namespace Rennbahn
 
         {
             InitializeComponent();
-            Rennbahnlaenge = this.pb_hintergrund.Width / 2;
+            Rennbahnlaenge = this.pb_hintergrund.Width / 4;
             spielerAnlegen();
             windhundeAnlegen();
         }
@@ -83,7 +83,24 @@ namespace Rennbahn
                 }
             }
             MessageBox.Show(String.Format("Der Gewinner ist Hund Nummer {0}. Herzlichen Glückwunsch!", Gewinner.nummer.ToString()));
+            RennenBeendet();
 
         }
+        private void RennenBeendet()
+        {
+            foreach (Spieler S in spArr)
+            {
+                S.Einkassieren(Gewinner.nummer);
+            }
+
+            foreach (Windhund W in whArr)
+            {
+                W.StartposEinnehmen();
+
+            }
+
+            this.Refresh();
+        }
+
     }
 }

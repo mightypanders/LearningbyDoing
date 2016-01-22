@@ -43,6 +43,7 @@ namespace Rennbahn
         public void StartposEinnehmen()
         {
             this.Ort = this.Startposition;
+            this.Position.Text = this.Ort.ToString();
         }
     }
 }
