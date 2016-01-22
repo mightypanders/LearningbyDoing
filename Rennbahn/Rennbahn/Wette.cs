@@ -28,7 +28,8 @@ namespace Rennbahn
             {
                 return Betrag * 2;
             }
-            else {
+            else
+            {
                 return Betrag * -1;
             }
         }

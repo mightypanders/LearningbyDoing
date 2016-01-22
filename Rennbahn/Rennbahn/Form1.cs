@@ -15,11 +15,13 @@ namespace Rennbahn
         public Spieler[] spArr;
         public Windhund[] whArr;
         public Spieler Wetter;
-        public int Rennbahnlaenge = 100;
+        public Windhund Gewinner = null;
+        public int Rennbahnlaenge;
         public Form1()
 
         {
             InitializeComponent();
+            Rennbahnlaenge = this.pb_hintergrund.Width / 2;
             spielerAnlegen();
             windhundeAnlegen();
         }
@@ -43,10 +45,10 @@ namespace Rennbahn
         public void windhundeAnlegen()
         {
             whArr = new Windhund[4];
-            whArr[0] = new Windhund(1, 0, Rennbahnlaenge, null, 0);
-            whArr[1] = new Windhund(2, 0, Rennbahnlaenge, null, 0);
-            whArr[2] = new Windhund(3, 0, Rennbahnlaenge, null, 0);
-            whArr[3] = new Windhund(4, 0, Rennbahnlaenge, null, 0);
+            whArr[0] = new Windhund(1, 0, Rennbahnlaenge, null, 0, lblH1Pos);
+            whArr[1] = new Windhund(2, 0, Rennbahnlaenge, null, 0, lblH2Pos);
+            whArr[2] = new Windhund(3, 0, Rennbahnlaenge, null, 0, lblH3Pos);
+            whArr[3] = new Windhund(4, 0, Rennbahnlaenge, null, 0, lblH4Pos);
 
         }
         #endregion
@@ -60,19 +62,28 @@ namespace Rennbahn
 
         private void btn_Rennen_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < whArr.Length; i++)
+            while (Gewinner == null)
             {
-                if (whArr[i].Laufen())
+                for (int i = 0; i < whArr.Length; i++)
                 {
-                    //move graphics
-                    MessageBox.Show("hier passiert laufen");
-                }
-                else
-                {
+                    if (whArr[i].Laufen())
+                    {
+                        //move graphics
+                        int BildOrt = whArr[i].Ort;
+                        whArr[i].Position.Text = whArr[i].Ort.ToString();
+                        this.Refresh();
+                        BildOrt = 0;
+                    }
+                    else
+                    {
+                        Gewinner = whArr[i];
+                        break;
+                    }
 
-                    break;
                 }
             }
+            MessageBox.Show(String.Format("Der Gewinner ist Hund Nummer {0}. Herzlichen Glückwunsch!", Gewinner.nummer.ToString()));
+
         }
     }
 }

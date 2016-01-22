@@ -44,6 +44,10 @@
             this.rb_2 = new System.Windows.Forms.RadioButton();
             this.rb_1 = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblH1Pos = new System.Windows.Forms.Label();
+            this.lblH2Pos = new System.Windows.Forms.Label();
+            this.lblH3Pos = new System.Windows.Forms.Label();
+            this.lblH4Pos = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pb_hintergrund)).BeginInit();
             this.gB_wettbuero.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -62,6 +66,10 @@
             // 
             // gB_wettbuero
             // 
+            this.gB_wettbuero.Controls.Add(this.lblH4Pos);
+            this.gB_wettbuero.Controls.Add(this.lblH3Pos);
+            this.gB_wettbuero.Controls.Add(this.lblH2Pos);
+            this.gB_wettbuero.Controls.Add(this.lblH1Pos);
             this.gB_wettbuero.Controls.Add(this.lbl_wette3);
             this.gB_wettbuero.Controls.Add(this.lbl_wette2);
             this.gB_wettbuero.Controls.Add(this.lbl_wette1);
@@ -225,6 +233,42 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mindestwetteinsatz 5€";
             // 
+            // lblH1Pos
+            // 
+            this.lblH1Pos.AutoSize = true;
+            this.lblH1Pos.Location = new System.Drawing.Point(173, 55);
+            this.lblH1Pos.Name = "lblH1Pos";
+            this.lblH1Pos.Size = new System.Drawing.Size(35, 13);
+            this.lblH1Pos.TabIndex = 14;
+            this.lblH1Pos.Text = "label5";
+            // 
+            // lblH2Pos
+            // 
+            this.lblH2Pos.AutoSize = true;
+            this.lblH2Pos.Location = new System.Drawing.Point(173, 68);
+            this.lblH2Pos.Name = "lblH2Pos";
+            this.lblH2Pos.Size = new System.Drawing.Size(35, 13);
+            this.lblH2Pos.TabIndex = 15;
+            this.lblH2Pos.Text = "label6";
+            // 
+            // lblH3Pos
+            // 
+            this.lblH3Pos.AutoSize = true;
+            this.lblH3Pos.Location = new System.Drawing.Point(173, 82);
+            this.lblH3Pos.Name = "lblH3Pos";
+            this.lblH3Pos.Size = new System.Drawing.Size(35, 13);
+            this.lblH3Pos.TabIndex = 16;
+            this.lblH3Pos.Text = "label7";
+            // 
+            // lblH4Pos
+            // 
+            this.lblH4Pos.AutoSize = true;
+            this.lblH4Pos.Location = new System.Drawing.Point(173, 95);
+            this.lblH4Pos.Name = "lblH4Pos";
+            this.lblH4Pos.Size = new System.Drawing.Size(35, 13);
+            this.lblH4Pos.TabIndex = 17;
+            this.lblH4Pos.Text = "label8";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,6 +305,10 @@
         private System.Windows.Forms.RadioButton rb_2;
         private System.Windows.Forms.RadioButton rb_1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblH3Pos;
+        private System.Windows.Forms.Label lblH2Pos;
+        private System.Windows.Forms.Label lblH1Pos;
+        private System.Windows.Forms.Label lblH4Pos;
     }
 }
 
