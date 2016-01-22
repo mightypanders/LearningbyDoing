@@ -23,8 +23,17 @@ namespace Rennbahn
             InitializeComponent();
             Rennbahnlaenge = this.pb_hintergrund.Width / 4;
             spielerAnlegen();
+#if DEBUG
+            showDebugLabels();
+#endif
             windhundeAnlegen();
         }
+
+        private void showDebugLabels()
+        {
+            this.lblH1Pos.Visible = this.lblH2Pos.Visible = this.lblH3Pos.Visible = this.lblH4Pos.Visible = true;
+        }
+
         private void btn_wettet_Click(object sender, EventArgs e)
         {
             Wetter.WetteAbgeben((int)numericUpDown1.Value, (int)numericUpDown2.Value);
@@ -68,9 +77,14 @@ namespace Rennbahn
                 {
                     if (whArr[i].Laufen())
                     {
-                        //move graphics
-                        int BildOrt = whArr[i].Ort;
+
+                        int BildOrt = whArr[i].Ort; // potentiell unnötig?
+
+
+#if DEBUG //beta Anzeige, solange keine Bilder da sind.s
                         whArr[i].Position.Text = whArr[i].Ort.ToString();
+#endif
+                        moveImages(whArr[i]);
                         this.Refresh();
                         BildOrt = 0;
                     }
@@ -102,5 +116,10 @@ namespace Rennbahn
             this.Refresh();
         }
 
+
+        private void moveImages(Windhund w)
+        {
+
+        }
     }
 }

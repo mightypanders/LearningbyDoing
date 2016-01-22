@@ -30,6 +30,10 @@
         {
             this.pb_hintergrund = new System.Windows.Forms.PictureBox();
             this.gB_wettbuero = new System.Windows.Forms.GroupBox();
+            this.lblH4Pos = new System.Windows.Forms.Label();
+            this.lblH3Pos = new System.Windows.Forms.Label();
+            this.lblH2Pos = new System.Windows.Forms.Label();
+            this.lblH1Pos = new System.Windows.Forms.Label();
             this.lbl_wette3 = new System.Windows.Forms.Label();
             this.lbl_wette2 = new System.Windows.Forms.Label();
             this.lbl_wette1 = new System.Windows.Forms.Label();
@@ -44,10 +48,6 @@
             this.rb_2 = new System.Windows.Forms.RadioButton();
             this.rb_1 = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblH1Pos = new System.Windows.Forms.Label();
-            this.lblH2Pos = new System.Windows.Forms.Label();
-            this.lblH3Pos = new System.Windows.Forms.Label();
-            this.lblH4Pos = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pb_hintergrund)).BeginInit();
             this.gB_wettbuero.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -90,6 +90,46 @@
             this.gB_wettbuero.TabIndex = 1;
             this.gB_wettbuero.TabStop = false;
             this.gB_wettbuero.Text = "Wettbüro";
+            // 
+            // lblH4Pos
+            // 
+            this.lblH4Pos.AutoSize = true;
+            this.lblH4Pos.Location = new System.Drawing.Point(173, 95);
+            this.lblH4Pos.Name = "lblH4Pos";
+            this.lblH4Pos.Size = new System.Drawing.Size(35, 13);
+            this.lblH4Pos.TabIndex = 17;
+            this.lblH4Pos.Text = "label8";
+            this.lblH4Pos.Visible = false;
+            // 
+            // lblH3Pos
+            // 
+            this.lblH3Pos.AutoSize = true;
+            this.lblH3Pos.Location = new System.Drawing.Point(173, 82);
+            this.lblH3Pos.Name = "lblH3Pos";
+            this.lblH3Pos.Size = new System.Drawing.Size(35, 13);
+            this.lblH3Pos.TabIndex = 16;
+            this.lblH3Pos.Text = "label7";
+            this.lblH3Pos.Visible = false;
+            // 
+            // lblH2Pos
+            // 
+            this.lblH2Pos.AutoSize = true;
+            this.lblH2Pos.Location = new System.Drawing.Point(173, 68);
+            this.lblH2Pos.Name = "lblH2Pos";
+            this.lblH2Pos.Size = new System.Drawing.Size(35, 13);
+            this.lblH2Pos.TabIndex = 15;
+            this.lblH2Pos.Text = "label6";
+            this.lblH2Pos.Visible = false;
+            // 
+            // lblH1Pos
+            // 
+            this.lblH1Pos.AutoSize = true;
+            this.lblH1Pos.Location = new System.Drawing.Point(173, 55);
+            this.lblH1Pos.Name = "lblH1Pos";
+            this.lblH1Pos.Size = new System.Drawing.Size(35, 13);
+            this.lblH1Pos.TabIndex = 14;
+            this.lblH1Pos.Text = "label5";
+            this.lblH1Pos.Visible = false;
             // 
             // lbl_wette3
             // 
@@ -232,42 +272,6 @@
             this.label1.Size = new System.Drawing.Size(168, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mindestwetteinsatz 5€";
-            // 
-            // lblH1Pos
-            // 
-            this.lblH1Pos.AutoSize = true;
-            this.lblH1Pos.Location = new System.Drawing.Point(173, 55);
-            this.lblH1Pos.Name = "lblH1Pos";
-            this.lblH1Pos.Size = new System.Drawing.Size(35, 13);
-            this.lblH1Pos.TabIndex = 14;
-            this.lblH1Pos.Text = "label5";
-            // 
-            // lblH2Pos
-            // 
-            this.lblH2Pos.AutoSize = true;
-            this.lblH2Pos.Location = new System.Drawing.Point(173, 68);
-            this.lblH2Pos.Name = "lblH2Pos";
-            this.lblH2Pos.Size = new System.Drawing.Size(35, 13);
-            this.lblH2Pos.TabIndex = 15;
-            this.lblH2Pos.Text = "label6";
-            // 
-            // lblH3Pos
-            // 
-            this.lblH3Pos.AutoSize = true;
-            this.lblH3Pos.Location = new System.Drawing.Point(173, 82);
-            this.lblH3Pos.Name = "lblH3Pos";
-            this.lblH3Pos.Size = new System.Drawing.Size(35, 13);
-            this.lblH3Pos.TabIndex = 16;
-            this.lblH3Pos.Text = "label7";
-            // 
-            // lblH4Pos
-            // 
-            this.lblH4Pos.AutoSize = true;
-            this.lblH4Pos.Location = new System.Drawing.Point(173, 95);
-            this.lblH4Pos.Name = "lblH4Pos";
-            this.lblH4Pos.Size = new System.Drawing.Size(35, 13);
-            this.lblH4Pos.TabIndex = 17;
-            this.lblH4Pos.Text = "label8";
             // 
             // Form1
             // 
