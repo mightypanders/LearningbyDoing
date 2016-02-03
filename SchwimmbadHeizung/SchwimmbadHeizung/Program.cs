@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SchwimmbadHeizung
 {
@@ -56,14 +52,19 @@ namespace SchwimmbadHeizung
         {
             Console.WriteLine("Geben sie den Namen des Technikers ein");
             this.techniker = Console.ReadLine();
+
             Console.WriteLine("Geben sie die Soll Temperatur des Wassers ein");
-            this.Warmwassertemp = (short)(Convert.ToInt32(Console.ReadLine()));
+            this.Warmwassertemp = Convert.ToInt16(Console.ReadLine());
+
             Console.WriteLine("Geben sie die gewünschte Neigung der Heizkurve ein");
             this.neigungHK = Convert.ToDouble(Console.ReadLine());
+
             Console.WriteLine("Geben sie das gewünschte Niveau der Heizkurve ein");
-            this.niveauHK = (short)(Convert.ToInt32(Console.ReadLine()));
+            this.niveauHK = Convert.ToInt16(Console.ReadLine());
+
             Console.WriteLine("Soll das Schwimmbad beheizt werden?");
             string input = Console.ReadLine();
+
             if (input == "J" || input == "j" || input == "y" || input == "Y")
             {
                 this.sbHeizen = true;
@@ -72,6 +73,7 @@ namespace SchwimmbadHeizung
             {
                 this.sbHeizen = false;
             }
+
             Console.WriteLine("In welcher Temperatureinheit wird gerechnet? (C/F/K)");
             this.tempEinheit = Convert.ToChar(Console.ReadLine());
 
