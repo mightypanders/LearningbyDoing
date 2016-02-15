@@ -87,6 +87,7 @@
     <None Include="res\racetrack.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\dog.bmp" />
     <Content Include="res\dog.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

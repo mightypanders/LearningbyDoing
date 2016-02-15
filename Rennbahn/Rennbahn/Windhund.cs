@@ -16,6 +16,7 @@ namespace Rennbahn
         public int Ort = 0;
         public Random Zufallszahl = new Random();
         public Label Position = null;
+        public int Distanz = 0;
 
         public Windhund(int nummer, int Startposition, int Rennbahnlaenge, PictureBox Bild, int Ort, Label Pos)
         {
@@ -31,11 +32,16 @@ namespace Rennbahn
         {
             if (this.Ort < this.Rennbahnlaenge)
             {
-                this.Ort += Zufallszahl.Next(1, 5);
+                this.Distanz = Zufallszahl.Next(1, 10);
+                this.Ort += this.Distanz;
                 this.Zufallszahl = new Random();
+                this.Bild.Left += this.Distanz;
                 return true;
             }
-            else { return false; }
+            else
+            {
+                return false;
+            }
 
         }
 
@@ -43,6 +49,7 @@ namespace Rennbahn
         public void StartposEinnehmen()
         {
             this.Ort = this.Startposition;
+            this.Bild.Left = 13;
             this.Position.Text = this.Ort.ToString();
         }
     }

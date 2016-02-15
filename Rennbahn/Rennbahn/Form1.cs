@@ -17,11 +17,12 @@ namespace Rennbahn
         public Spieler Wetter;
         public Windhund Gewinner = null;
         public int Rennbahnlaenge;
+        public PictureBox[] whPBarray;
         public Form1()
 
         {
             InitializeComponent();
-            Rennbahnlaenge = this.pb_hintergrund.Width / 4;
+            Rennbahnlaenge = this.pb_hintergrund.Width - 150;
             spielerAnlegen();
 #if DEBUG
             showDebugLabels();
@@ -54,12 +55,13 @@ namespace Rennbahn
         public void windhundeAnlegen()
         {
             whArr = new Windhund[4];
-            whArr[0] = new Windhund(1, 0, Rennbahnlaenge, null, 0, lblH1Pos);
-            whArr[1] = new Windhund(2, 0, Rennbahnlaenge, null, 0, lblH2Pos);
-            whArr[2] = new Windhund(3, 0, Rennbahnlaenge, null, 0, lblH3Pos);
-            whArr[3] = new Windhund(4, 0, Rennbahnlaenge, null, 0, lblH4Pos);
-
+            whPBarray = new PictureBox[4];
+            whArr[0] = new Windhund(1, 0, Rennbahnlaenge, this.pictureBox1, 0, lblH1Pos);
+            whArr[1] = new Windhund(2, 0, Rennbahnlaenge, this.pictureBox2, 0, lblH2Pos);
+            whArr[2] = new Windhund(3, 0, Rennbahnlaenge, this.pictureBox3, 0, lblH3Pos);
+            whArr[3] = new Windhund(4, 0, Rennbahnlaenge, this.pictureBox4, 0, lblH4Pos);
         }
+
         #endregion
 
 
@@ -84,7 +86,8 @@ namespace Rennbahn
 #if DEBUG //beta Anzeige, solange keine Bilder da sind.s
                         whArr[i].Position.Text = whArr[i].Ort.ToString();
 #endif
-                        moveImages(whArr[i]);
+
+
                         this.Refresh();
                         BildOrt = 0;
                     }
@@ -104,7 +107,10 @@ namespace Rennbahn
         {
             foreach (Spieler S in spArr)
             {
-                S.Einkassieren(Gewinner.nummer);
+                if (Gewinner != null)
+                    S.Einkassieren(Gewinner.nummer);
+
+                Gewinner = null;
             }
 
             foreach (Windhund W in whArr)
@@ -114,12 +120,6 @@ namespace Rennbahn
             }
 
             this.Refresh();
-        }
-
-
-        private void moveImages(Windhund w)
-        {
-
         }
     }
 }
