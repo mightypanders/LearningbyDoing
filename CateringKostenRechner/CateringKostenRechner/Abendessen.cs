@@ -8,11 +8,13 @@ namespace CateringKostenRechner
 {
     class Abendessen
     {
-        private int Personenanzahl = 0;
+        private int Personenanzahl;
         private decimal Gesamtkosten;
         private bool trocken;
-        private decimal GKproPers = 0.0M;
-        private decimal dekokosten = 0.0M;
+        private decimal GKproPers;
+        private decimal rabatt;
+        private decimal dekokosten;
+        private decimal dekopauschale;
 
         public const int EssenskostenproPerson = 25;
 
@@ -23,24 +25,37 @@ namespace CateringKostenRechner
 
         public void TrockenerAbendWaehlen(bool gew)
         {
-            this.trocken = gew;
+            if (gew)
+            {
+                GKproPers = 5M;
+                rabatt = 0.95M;
+            }
+            else
+            {
+                GKproPers = 20M;
+                rabatt = 1M;
+            }
         }
 
         public void DekokostenBerechnen(bool ausgef)
         {
             if (ausgef)
-                dekokosten = Personenanzahl * 15 + 50;
+            {
+                dekokosten = 15 + 50;
+                dekopauschale = 50M;
+            }
             else
-                dekokosten = Personenanzahl * 7.5M + 30;
+            {
+                dekokosten = 7.5M + 30;
+                dekopauschale = 30M;
+            }
         }
 
         public decimal KostenBerechnen(bool trocken)
         {
-            //if(trocken)
-            //    Gesamtkosten = 
-            //    else
 
-            Gesamtkosten = dekokosten;
+
+            Gesamtkosten = (((dekokosten + GKproPers) * Personenanzahl) + dekopauschale) * rabatt;
             return 0.0M;
             ;
         }
