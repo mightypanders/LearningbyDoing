@@ -17,14 +17,14 @@ namespace CateringKostenRechner
         {
             InitializeComponent();
             abendessen = new Abendessen(5);
-            abendessen.TrockenerAbendWaehlen(false);
-            //abendessen.DekokostenBerechnen(true);
+            abendessen.TrockenerAbendWaehlen(chk_trocken.Checked);
+            abendessen.DekokostenBerechnen(chk_ausgefallen.Checked);
             AbendessenKostenAnzeigen();
         }
 
         private void AbendessenKostenAnzeigen()
         {
-            abendessen.DekokostenBerechnen(chk_ausgefallen.Checked);
+            //abendessen.DekokostenBerechnen(chk_ausgefallen.Checked);
             decimal kosten = abendessen.KostenBerechnen(chk_trocken.Checked);
             lbl_KostenFeld.Text = kosten.ToString("c");
 
@@ -32,16 +32,19 @@ namespace CateringKostenRechner
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
+            abendessen.Personen = (int)(numericUpDown1.Value);
             AbendessenKostenAnzeigen();
         }
 
         private void chk_ausgefallen_CheckStateChanged(object sender, EventArgs e)
         {
+            abendessen.DekokostenBerechnen(chk_ausgefallen.Checked);
             AbendessenKostenAnzeigen();
         }
 
         private void chk_trocken_CheckedChanged(object sender, EventArgs e)
         {
+            abendessen.TrockenerAbendWaehlen(chk_trocken.Checked);
             AbendessenKostenAnzeigen();
         }
     }

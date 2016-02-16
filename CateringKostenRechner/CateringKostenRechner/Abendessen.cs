@@ -22,6 +22,17 @@ namespace CateringKostenRechner
         {
             this.Personenanzahl = Personen;
         }
+        public int Personen
+        {
+            get
+            {
+                return Personenanzahl;
+            }
+            set
+            {
+                Personenanzahl = value;
+            }
+        }
 
         public void TrockenerAbendWaehlen(bool gew)
         {
@@ -41,12 +52,12 @@ namespace CateringKostenRechner
         {
             if (ausgef)
             {
-                dekokosten = 15 + 50;
+                dekokosten = 15M;
                 dekopauschale = 50M;
             }
             else
             {
-                dekokosten = 7.5M + 30;
+                dekokosten = 7.5M;
                 dekopauschale = 30M;
             }
         }
@@ -55,8 +66,8 @@ namespace CateringKostenRechner
         {
 
 
-            Gesamtkosten = (((dekokosten + GKproPers) * Personenanzahl) + dekopauschale) * rabatt;
-            return 0.0M;
+            Gesamtkosten = (((dekokosten + GKproPers + EssenskostenproPerson) * Personenanzahl) + dekopauschale) * rabatt;
+            return Gesamtkosten;
             ;
         }
     }
