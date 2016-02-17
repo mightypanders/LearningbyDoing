@@ -26,6 +26,10 @@ namespace Game
             _uID = ID.getuID();
 
         }
+        public virtual bool move(int plusx, int plusy)
+        {
+            return false;
+        }
     }
     class PowerUps : Objects
     {
@@ -33,8 +37,8 @@ namespace Game
         protected float _factor;
         protected int _amount;
 
-        
-        public PowerUps(Identifier ID, string name, string title, float factor, int amount) 
+
+        public PowerUps(Identifier ID, string name, string title, float factor, int amount)
         {
             _uID = ID.getuID();
             _name = name;
@@ -46,7 +50,7 @@ namespace Game
     }
     class Player : Objects
     {
-        
+
         protected short _playernumber;
         protected string _color;
         protected PowerUps[] _powerUps;
@@ -56,7 +60,7 @@ namespace Game
         protected int _posX;
         protected int _posY;
 
-       public Player(Identifier ID, string name, short playernumber, string color, PowerUps[] powerups, short lives, short wins, short losses, int posX, int posY)
+        public Player(Identifier ID, string name, short playernumber, string color, PowerUps[] powerups, short lives, short wins, short losses, int posX, int posY)
         {
             _uID = ID.getuID();
             _name = name;
@@ -70,15 +74,21 @@ namespace Game
             _posY = posY;
         }
 
-        public short playernumber { 
-            get { return _playernumber; }
-            set { _playernumber = value; }
-       }
-        public bool movePlayer (int plusx, int plusy)
+        public short playernumber
+        {
+            get
+            {
+                return _playernumber;
+            }
+            set
+            {
+                _playernumber = value;
+            }
+        }
+        public override bool move(int plusx, int plusy)
         {
 
-
-            return true;
+            return false;
         }
 
     }
