@@ -10,12 +10,10 @@ namespace CateringKostenRechner
     {
         private int Personenanzahl;
         private decimal Gesamtkosten;
-        private bool trocken;
         private decimal GKproPers;
         private decimal rabatt;
         private decimal dekokosten;
         private decimal dekopauschale;
-
         public const int EssenskostenproPerson = 25;
 
         public Abendessen(int Personen)

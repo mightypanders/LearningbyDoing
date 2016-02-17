@@ -16,7 +16,7 @@ namespace CateringKostenRechner
         public PartyPlaner()
         {
             InitializeComponent();
-            abendessen = new Abendessen(5);
+            abendessen = new Abendessen((int)numericUpDown1.Value);
             abendessen.TrockenerAbendWaehlen(chk_trocken.Checked);
             abendessen.DekokostenBerechnen(chk_ausgefallen.Checked);
             AbendessenKostenAnzeigen();
@@ -24,7 +24,6 @@ namespace CateringKostenRechner
 
         private void AbendessenKostenAnzeigen()
         {
-            //abendessen.DekokostenBerechnen(chk_ausgefallen.Checked);
             decimal kosten = abendessen.KostenBerechnen(chk_trocken.Checked);
             lbl_KostenFeld.Text = kosten.ToString("c");
 
