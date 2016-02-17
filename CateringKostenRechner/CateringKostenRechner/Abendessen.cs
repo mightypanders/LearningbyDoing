@@ -3,71 +3,116 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CateringKostenRechner
 {
-    class Abendessen
+    class Abendessen : Party
     {
-        private int Personenanzahl;
-        private decimal Gesamtkosten;
-        private decimal GKproPers;
-        private decimal rabatt;
-        private decimal dekokosten;
-        private decimal dekopauschale;
-        public const int EssenskostenproPerson = 25;
-
-        public Abendessen(int Personen)
+        public Abendessen(int Personen, bool trocken, bool exklusiv) : base(Personen)
         {
-            this.Personenanzahl = Personen;
+            TrockenerAbendWaehlen(trocken);
+            DekokostenBerechnen(exklusiv);
         }
-        public int Personen
-        {
-            get
-            {
-                return Personenanzahl;
-            }
-            set
-            {
-                Personenanzahl = value;
-            }
-        }
-
         public void TrockenerAbendWaehlen(bool gew)
         {
             if (gew)
             {
                 GKproPers = 5M;
-                rabatt = 0.95M;
+                Rabatt = 0.95M;
             }
             else
             {
                 GKproPers = 20M;
-                rabatt = 1M;
+                Rabatt = 1M;
             }
         }
 
-        public void DekokostenBerechnen(bool ausgef)
+        public override decimal KostenBerechnen()
         {
-            if (ausgef)
-            {
-                dekokosten = 15M;
-                dekopauschale = 50M;
-            }
-            else
-            {
-                dekokosten = 7.5M;
-                dekopauschale = 30M;
-            }
-        }
-
-        public decimal KostenBerechnen(bool trocken)
-        {
-
-
-            Gesamtkosten = (((dekokosten + GKproPers + EssenskostenproPerson) * Personenanzahl) + dekopauschale) * rabatt;
+            Gesamtkosten = (Dekokosten + ((GKproPers + EssenskostenproPerson) * Personen)) * Rabatt;
             return Gesamtkosten;
-            ;
         }
     }
+    class Geburtstagsfeier : Party
+    {
+        private int kuchengroesse;
+        //private bool exklusiveDeko;
+        private string kuchentext;
 
+        public Geburtstagsfeier(int Personen, bool exklusivDeko, string ktext) : base(Personen)
+        {
+            this.ExklusiveDeko = exklusivDeko;
+            KuchengroesseBerechnen();
+            this.Kuchentext = ktext;
+            DekokostenBerechnen(ExklusiveDeko);
+        }
+
+
+        public int Kuchengroesse
+        {
+            get
+            {
+                return kuchengroesse;
+            }
+
+            set
+            {
+                kuchengroesse = value;
+            }
+        }
+
+        public string Kuchentext
+        {
+            get
+            {
+                return this.kuchentext;
+            }
+
+            set
+            {
+                int maxL;
+                if (kuchengroesse == 18)
+                {
+                    maxL = 28;
+                }
+                else
+                {
+                    maxL = 40;
+                }
+                if (value.Length > maxL)
+                {
+                    MessageBox.Show("Text zu lang für " + Kuchengroesse + "-cm-Kuchen.");
+                    if (maxL > this.kuchentext.Length)
+                        maxL = this.kuchentext.Length;
+                    this.kuchentext = kuchentext.Substring(0, maxL);
+                }
+                else
+                {
+                    this.kuchentext = value;
+                }
+                kuchentext = value;
+            }
+        }
+        private void KuchengroesseBerechnen()
+        {
+            if (Personen <= 4)
+                Kuchengroesse = 18;
+            else
+                Kuchengroesse = 28;
+        }
+
+        public override decimal KostenBerechnen()
+        {
+
+            decimal KKosten;
+            if (Kuchengroesse == 18)
+                KKosten = 40M + Kuchentext.Length * .25M;
+            else
+                KKosten = 75M + Kuchentext.Length * .25M;
+
+
+            return base.KostenBerechnen() + KKosten;
+        }
+    }
 }
