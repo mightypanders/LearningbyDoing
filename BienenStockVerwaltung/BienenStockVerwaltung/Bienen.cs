@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace BienenStockVerwaltung
 {
-    class Bienen
+    public class Bienen
     {
 
     }
-    class Bienenkoenigin : Bienen
+    public class Bienenkoenigin : Bienen
     {
         private Arbeitsbiene[] arbeiter;
         private int schichtNummer;
@@ -40,7 +40,7 @@ namespace BienenStockVerwaltung
         }
 
     }
-    class Arbeitsbiene : Bienen
+    public class Arbeitsbiene : Bienen
     {
         private string aktuelleArbeit = "";
         private int offeneSchichten;

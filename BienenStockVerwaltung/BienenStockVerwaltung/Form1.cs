@@ -12,9 +12,16 @@ namespace BienenStockVerwaltung
 {
     public partial class Form1 : Form
     {
+        private Bienenkoenigin Koenigin;
         public Form1()
         {
             InitializeComponent();
+            Koenigin = new Bienenkoenigin();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Koenigin.NaechsteSchichtArbeiten();
         }
     }
 }
