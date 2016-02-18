@@ -15,6 +15,11 @@ namespace BienenStockVerwaltung
         private Arbeitsbiene[] arbeiter;
         private int schichtNummer;
 
+        public Bienenkoenigin(Arbeitsbiene[] arbeiter)
+        {
+            this.arbeiter = arbeiter;
+        }
+
         public bool ArbeitZuweisen(string arbeit, int schichtanzahl)
         {
             bool gefunden = true;
@@ -116,6 +121,11 @@ namespace BienenStockVerwaltung
             }
         }
         #endregion
+
+        public Arbeitsbiene(string[] moeglicheArbeiten)
+        {
+            this.moeglicheArbeiten = moeglicheArbeiten;
+        }
 
         public bool AufgabeErledigen(string arbeit, int schichten)
         {
