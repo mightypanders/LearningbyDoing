@@ -17,6 +17,7 @@ namespace Experimente
         static bool convert = true;
         static string ergebnis = "";
         static int Zahl;
+        static decimal Dec;
         static void Main(string[] args)
         {
             foreach (string item in arr)
@@ -26,7 +27,7 @@ namespace Experimente
                     time = DateTime.Parse(item);
                     Console.WriteLine("DateTime " + time.ToString());
                     Console.ReadKey();
-                    continue;
+                    //continue;
                 }
                 catch (Exception)
                 {
@@ -38,7 +39,7 @@ namespace Experimente
                     Zahl = int.Parse(item);
                     Console.WriteLine("Zahl " + Zahl);
                     Console.ReadKey();
-                    continue;
+                    //continue;
                 }
                 catch (Exception)
                 {
@@ -47,25 +48,27 @@ namespace Experimente
                 }
                 try
                 {
-                    foreach (char i in item)
-                    {
-                        try
-                        {
-                            Zahl = int.Parse(i.ToString());
-                            convert = true;
-                        }
-                        catch (Exception)
-                        {
-                            convert = false;
-                        }
-                        if (convert)
-                        {
-                            ergebnis += Zahl.ToString();
+                    //foreach (char i in item)
+                    //{
+                    //    try
+                    //    {
+                    //        Zahl = int.Parse(i.ToString());
+                    //        convert = true;
+                    //    }
+                    //    catch (Exception)
+                    //    {
+                    //        convert = false;
+                    //    }
+                    //    if (convert)
+                    //    {
+                    //        ergebnis += Zahl.ToString();
 
-                            continue;
-                        }
-                    }
-                    Console.WriteLine(ergebnis);
+                    //        continue;
+                    //    }
+                    //}
+                    Decimal.TryParse(item, out Dec);
+
+                    Console.WriteLine(Dec);
 
                 }
                 catch (Exception)
