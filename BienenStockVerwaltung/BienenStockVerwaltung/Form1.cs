@@ -13,7 +13,7 @@ namespace BienenStockVerwaltung
     public partial class Form1 : Form
     {
         private Bienenkoenigin Koenigin;
-        private Arbeitsbiene[] arbeiter;
+        private Arbeitsbiene[] arbeiter = new Arbeitsbiene[10];
 
         //public enum
         public Form1()

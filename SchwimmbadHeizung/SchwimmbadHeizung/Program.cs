@@ -54,18 +54,40 @@ namespace SchwimmbadHeizung
             this.techniker = Console.ReadLine();
 
             Console.WriteLine("Geben sie die Soll Temperatur des Wassers ein");
-            this.Warmwassertemp = Convert.ToInt16(Console.ReadLine());
+            short.TryParse(Console.ReadLine(), out Warmwassertemp);
+            if (Warmwassertemp < 20 || Warmwassertemp > 68)
+            {
+                Console.WriteLine("Bitte geben sie einen Wert zwischen 20° und 68° ein.");
+                short.TryParse(Console.ReadLine(), out Warmwassertemp);
+                if (Warmwassertemp < 20 || Warmwassertemp > 68)
+                    Environment.Exit(Environment.ExitCode);
+            }
+
 
             Console.WriteLine("Geben sie die gewünschte Neigung der Heizkurve ein");
-            this.neigungHK = Convert.ToDouble(Console.ReadLine());
+            Double.TryParse(Console.ReadLine(), out neigungHK);
+            if (neigungHK < 0.2 || neigungHK > 3.0)
+            {
+                Console.WriteLine("Bitte geben sie einen Wert zwischen 0,2 und 3,0 ein.");
+                Double.TryParse(Console.ReadLine(), out neigungHK);
+                if (neigungHK < 0.2 || neigungHK > 3.0)
+                    Environment.Exit(Environment.ExitCode);
+            }
 
             Console.WriteLine("Geben sie das gewünschte Niveau der Heizkurve ein");
-            this.niveauHK = Convert.ToInt16(Console.ReadLine());
+            short.TryParse(Console.ReadLine(), out niveauHK);
+            if (niveauHK > -15 || niveauHK < -40)
+            {
+                Console.WriteLine("Bitte geben sie einen Wert zwischen -15 und -40 ein.");
+                short.TryParse(Console.ReadLine(), out niveauHK);
+                if (niveauHK < -15 || niveauHK > -40)
+                    Environment.Exit(Environment.ExitCode);
+            }
 
             Console.WriteLine("Soll das Schwimmbad beheizt werden?");
             string input = Console.ReadLine();
 
-            if (input == "J" || input == "j" || input == "y" || input == "Y")
+            if (input.ToLower() == "j" || input.ToLower() == "y" || input.ToLower() == "ja" || input.ToLower() == "true" || input.ToLower() == "wahr" || input.ToLower() == "yes")
             {
                 this.sbHeizen = true;
             }
