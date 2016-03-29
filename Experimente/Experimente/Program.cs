@@ -44,6 +44,7 @@ namespace Experimente
                 catch (Exception)
                 {
                     Console.WriteLine("Zahl " + item + " verkackt");
+                    Console.WriteLine("Test");
                     Console.ReadKey();
                 }
                 try
