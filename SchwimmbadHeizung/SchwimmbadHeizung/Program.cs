@@ -73,27 +73,39 @@ namespace SchwimmbadHeizung
                 if (neigungHK < 0.2 || neigungHK > 3.0)
                     Environment.Exit(Environment.ExitCode);
             }
-
+            
             Console.WriteLine("Geben sie das gewünschte Niveau der Heizkurve ein");
             short.TryParse(Console.ReadLine(), out niveauHK);
             if (niveauHK > -15 || niveauHK < -40)
             {
                 Console.WriteLine("Bitte geben sie einen Wert zwischen -15 und -40 ein.");
+
                 short.TryParse(Console.ReadLine(), out niveauHK);
+
                 if (niveauHK < -15 || niveauHK > -40)
                     Environment.Exit(Environment.ExitCode);
             }
 
+
+            
             Console.WriteLine("Soll das Schwimmbad beheizt werden?");
             string input = Console.ReadLine();
 
-            if (input.ToLower() == "j" || input.ToLower() == "y" || input.ToLower() == "ja" || input.ToLower() == "true" || input.ToLower() == "wahr" || input.ToLower() == "yes")
+            switch (input.ToLower())
             {
-                this.sbHeizen = true;
-            }
-            else
-            {
-                this.sbHeizen = false;
+                case "j":
+                case "ja":
+                case "yes":
+                case "y":
+                    this.sbHeizen = true;
+                    break;
+                case "n":
+                case "no":
+                case "nein":
+                    this.sbHeizen = false;
+                    break;
+                default:
+                    break;
             }
 
             Console.WriteLine("In welcher Temperatureinheit wird gerechnet? (C/F/K)");
