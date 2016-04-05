@@ -82,7 +82,7 @@ namespace SchwimmbadHeizung
 
                 short.TryParse(Console.ReadLine(), out niveauHK);
 
-                if (niveauHK < -15 || niveauHK > -40)
+                if (niveauHK > -15 || niveauHK < -40)
                     Environment.Exit(Environment.ExitCode);
             }
 
