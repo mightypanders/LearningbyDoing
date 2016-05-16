@@ -10,7 +10,15 @@ namespace Bankautomat
     {
         static void Main(string[] args)
         {
-            Wechseln();
+            while (true)
+            {
+                Wechseln();
+                Console.ReadKey();
+            }
+        }
+
+        static void alt_Wechseln()
+        {
             double zahlbar = 0;
             double gezahlt = 0.0;
 
@@ -59,7 +67,6 @@ namespace Bankautomat
             Console.WriteLine("0,02er " + Convert.ToInt32(muenze002 / 0.02));
             Console.WriteLine("0,01er " + Convert.ToInt32(muenze001 / 0.01));
             Console.ReadKey();
-
         }
 
         static void Wechseln()
@@ -112,7 +119,15 @@ namespace Bankautomat
             Console.WriteLine("20er " + anz20);
             Console.WriteLine("10er " + anz10);
             Console.WriteLine("5er " + anz5);
-            Console.WriteLine("2er" + anz2);
+            Console.WriteLine("2er " + anz2);
+            Console.WriteLine("1er " + anz1);
+            Console.WriteLine("05er " + anz05);
+            Console.WriteLine("02er " + anz02);
+            Console.WriteLine("01er " + anz01);
+            Console.WriteLine("005er " + anz005);
+            Console.WriteLine("002er " + anz002);
+            Console.WriteLine("001er " +anz001);
+
         }
     }
 }
