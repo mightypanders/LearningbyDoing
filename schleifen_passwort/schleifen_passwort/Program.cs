@@ -35,6 +35,13 @@ namespace schleifen_passwort
                 }
                 eingabe = "";
             } while (!richtig && versuche < 3);
+            if (!richtig)
+            {
+                
+                Console.WriteLine("Das Programm wird geschlossen!");
+                
+            }
+            Console.ReadKey();
 
         }
     }
