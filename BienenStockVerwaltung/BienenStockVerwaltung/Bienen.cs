@@ -44,7 +44,7 @@
         private string aktuelleArbeit = "";
         private int offeneSchichten;
 
-        private string[] moeglicheArbeiten;
+        private string[] moeglicheArbeiten= { "Nektar sammeln", "Honig herstellen", "Brutpflege","Bienenschule","Stockpflege","Wachdienst"};
         private int schichtAnzahl;
         private int erledigteSchichten;
 
@@ -115,7 +115,10 @@
             }
         }
         #endregion
+        public Arbeitsbiene()
+        {
 
+        }
         public Arbeitsbiene(string[] moeglicheArbeiten)
         {
             this.moeglicheArbeiten = moeglicheArbeiten;
