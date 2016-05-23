@@ -21,15 +21,14 @@ namespace GameControls
     {
         protected bool _state = true;
 
-        public bool state
-        {
+        public bool state {
             get { return _state; }
             set { _state = value; }
         }
     }
     static class Init
     {
-        static Player[] playArr;
+        public static Player[] playArr;
         static Player temp;
         public static void PlayersInit(short spielerzahl, Identifier ID)
         {

@@ -30,6 +30,23 @@ namespace Game
         {
             return false;
         }
+        public string name {
+            get {
+                return _name;
+            }
+            set {
+                _name = value;
+            }
+        }
+
+        public int uID {
+            get {
+                return _uID;
+            }
+            set {
+                _uID = value;
+            }
+        }
     }
     class PowerUps : Objects
     {
@@ -38,14 +55,14 @@ namespace Game
         protected int _amount;
 
 
-        public PowerUps(Identifier ID, string name, string title, float factor, int amount)
+        public PowerUps(Identifier ID, string name, string title, float factor, int amount) : base(ID, name)
         {
-            _uID = ID.getuID();
-            _name = name;
+            //_uID = ID.getuID();
+            //_name = name;
             _title = title;
             _factor = factor;
             _amount = amount;
-            _uID = ID.getuID();
+            //_uID = ID.getuID();
         }
     }
     class Player : Objects
@@ -60,10 +77,10 @@ namespace Game
         protected int _posX;
         protected int _posY;
 
-        public Player(Identifier ID, string name, short playernumber, string color, PowerUps[] powerups, short lives, short wins, short losses, int posX, int posY)
+        public Player(Identifier ID, string name, short playernumber, string color, PowerUps[] powerups, short lives, short wins, short losses, int posX, int posY) : base(ID, name)
         {
-            _uID = ID.getuID();
-            _name = name;
+            //_uID = ID.getuID();
+            //_name = name;
             _playernumber = playernumber;
             _color = color;
             _powerUps = powerups;
@@ -74,14 +91,13 @@ namespace Game
             _posY = posY;
         }
 
-        public short playernumber
-        {
-            get
-            {
+
+
+        public short playernumber {
+            get {
                 return _playernumber;
             }
-            set
-            {
+            set {
                 _playernumber = value;
             }
         }

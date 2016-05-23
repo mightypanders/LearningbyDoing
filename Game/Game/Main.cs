@@ -13,6 +13,7 @@ namespace Game
         static gamestate GS;
         static Logic logic;
         static short Playercount = 0;
+        static Identifier ID;
 
         [MTAThread]
         static void Main(string[] args)
@@ -37,7 +38,7 @@ namespace Game
         static bool initialize()
         {
             //Init init = new Init();
-            Identifier ID = Init.IDInit();
+            ID = Init.IDInit();
             logic = new Logic();
 
             Playercount = Init.askPlayerCount();
