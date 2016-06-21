@@ -17,14 +17,14 @@ namespace ZinsesZins
             int laufzeit = 0;
 
 
-            Console.WriteLine("bitte geben sie ihr startkapital ein: ");
+            Console.WriteLine("Bitte geben sie ihr Startkapital ein: ");
             Double.TryParse(Console.ReadLine(), out startKapital);
-            Console.WriteLine("bitte geben sie den Zinsfuß ein: ");
+            Console.WriteLine("Bitte geben sie den Zinsfuß ein: ");
             Double.TryParse(Console.ReadLine(), out zinsfuss);
-            Console.WriteLine("bitte geben sie die Laufzeit ein: ");
+            Console.WriteLine("Bitte geben sie die Laufzeit ein: ");
             Int32.TryParse(Console.ReadLine(), out laufzeit);
             endkapital = ZinsesZins(startKapital, laufzeit, zinsfuss);
-            Console.WriteLine("endkapital nach "+laufzeit+" Jahren ist " + endkapital+"€");
+            Console.WriteLine("Ihr Endkapital nach "+laufzeit+" Jahren ist " + endkapital+" Euro");
             Console.ReadKey();
 
         }

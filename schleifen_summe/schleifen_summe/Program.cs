@@ -10,17 +10,17 @@ namespace schleifen_summe
     {
         static void Main(string[] args)
         {
-
-            Console.WriteLine("geben sie einen wert ein: ");
+            Console.WriteLine("geben sie einen Startwert ein: ");
+            int startwert = 0;
+            Int32.TryParse(Console.ReadLine(), out startwert);
+            Console.WriteLine("geben sie einen Endwert ein: ");
             int endwert = 0;
             int summe = 0;
             Int32.TryParse(Console.ReadLine(), out endwert);
-
-            for (int i = 0; i <= endwert; i++)
+            for (int i = startwert; i <= endwert; i++)
             {
                 summe += i;
             }
-
             Console.WriteLine("Die summe ist: " + summe);
             Console.ReadKey();
         }
