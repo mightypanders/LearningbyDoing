@@ -16,12 +16,12 @@ namespace schleifen_summe
             int summe = 0;
             Int32.TryParse(Console.ReadLine(), out endwert);
 
-            for (int i = 0; i<=endwert; i++)
+            for (int i = 0; i <= endwert; i++)
             {
                 summe += i;
             }
 
-            Console.WriteLine("Die summe ist: "+summe);
+            Console.WriteLine("Die summe ist: " + summe);
             Console.ReadKey();
         }
     }

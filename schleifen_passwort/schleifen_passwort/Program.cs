@@ -12,13 +12,11 @@ namespace schleifen_passwort
         {
             bool richtig = false;
             string eingabe = "";
-            string[] pw = { "abc", "def","passwort" };
+            string[] pw = { "abc", "def", "passwort" };
             int versuche = 0;
 
             do
             {
-
-
                 Console.WriteLine("bitte geben sie ihr passwort ein :");
                 eingabe = Console.ReadLine();
                 foreach (string item in pw)
@@ -26,7 +24,8 @@ namespace schleifen_passwort
                     if (eingabe == item)
                     {
                         richtig = true;
-                    }else
+                    }
+                    else
                     {
                         Console.WriteLine("das passwort ist falsch!");
                         versuche += 1;
@@ -37,9 +36,9 @@ namespace schleifen_passwort
             } while (!richtig && versuche < 3);
             if (!richtig)
             {
-                
+
                 Console.WriteLine("Das Programm wird geschlossen!");
-                
+
             }
             Console.ReadKey();
 
