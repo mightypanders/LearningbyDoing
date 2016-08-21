@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Stopper</Title>
+      <Author>Markus</Author>
+      <Description>Surrounds selected code with a stopwatch.</Description>
+      <Shortcut>stpr</Shortcut>
+      <SnippetTypes>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet> 
+      <Declarations>
+      <Literal>
+        <ID>Stopwatch-Name</ID>
+        <ToolTip>Replace with name of Stopwatch</ToolTip>
+        <Default>stopper</Default>
+      </Literal>
+        <Literal>
+          <ID>Stop-Element</ID>
+          <ToolTip>Replace with identifiable Name of element in question.</ToolTip>
+          <Default>item</Default>
+        </Literal>
+    </Declarations>
+      <Code Language="CSharp">
+        <![CDATA[var $Stopwatch-Name$ = new Stopwatch();
+        $Stopwatch-Name$.Start();
+        $selected$
+        $Stopwatch-Name$.Stop();
+        Debug.WriteLine("$Stop-Element$: "+$Stopwatch-Name$.ElapsedMilliseconds.ToString("#,###")+" MS");$end$]]>
+      </Code> 
+     
+    </Snippet>   
+  </CodeSnippet>
+</CodeSnippets>
