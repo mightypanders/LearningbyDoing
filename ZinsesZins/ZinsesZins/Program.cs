@@ -36,6 +36,7 @@ namespace ZinsesZins
                 kapital = ZinsesZins(kapital, laufzeit - 1, Zins);
             }
             kapital = kapital * (1 + (Zins / 100));
+            Console.WriteLine(kapital +" im Jahr " + laufzeit);
             return kapital;
         }
     }
