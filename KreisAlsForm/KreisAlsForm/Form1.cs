@@ -19,8 +19,9 @@ namespace KreisAlsForm
         public Form1()
         {
             InitializeComponent();
-                kreis = new Kreis(standardwert);
-                rechteck = new Rechteck(standardwert, standardwert);
+
+            kreis = new Kreis(standardwert);
+            rechteck = new Rechteck(standardwert, standardwert);
 
             this.txt_Binput.Text = standardwert.ToString();
             this.txt_Radinput.Text = standardwert.ToString();
@@ -30,6 +31,7 @@ namespace KreisAlsForm
         {
             WerteBerechnen();
         }
+
         private void WerteBerechnen()
         {
             if (this.radioButton1.Checked)
@@ -37,7 +39,6 @@ namespace KreisAlsForm
                 Kreiswerte();
             }
             else
-
                 if (this.radioButton2.Checked)
             {
                 RechteckWerte();
@@ -48,11 +49,11 @@ namespace KreisAlsForm
         {
             double InputLinks = 0.0;
             double.TryParse(txt_Radinput.Text, out InputLinks);
-            
+
             kreis.setRadius(InputLinks);
+
             this.txt_FlOutput.Text = kreis.getFlaeche().ToString();
             this.txt_UmfOut.Text = kreis.getUmfang().ToString();
-
         }
 
         private void RechteckWerte()
@@ -61,12 +62,15 @@ namespace KreisAlsForm
             double.TryParse(txt_Radinput.Text, out InputLinks);
             double InputRechts = 0.0;
             double.TryParse(txt_Binput.Text, out InputRechts);
+
             rechteck.setSeiteA(InputLinks);
             rechteck.setSeiteB(InputRechts);
+
             this.txt_FlOutput.Text = rechteck.getFlache().ToString();
             this.txt_UmfOut.Text = rechteck.getUmfang().ToString();
 
         }
+
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             this.label1.Text = "Radius eingeben";
