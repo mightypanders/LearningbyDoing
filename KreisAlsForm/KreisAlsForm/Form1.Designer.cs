@@ -53,7 +53,7 @@
             this.txt_Radinput.Name = "txt_Radinput";
             this.txt_Radinput.Size = new System.Drawing.Size(100, 20);
             this.txt_Radinput.TabIndex = 0;
-            this.txt_Radinput.TextChanged += new System.EventHandler(this.txt_Radinput_TextChanged);
+            this.txt_Radinput.TextChanged += new System.EventHandler(this.txt_InputTextChanged);
             // 
             // label1
             // 
@@ -137,7 +137,7 @@
             this.txt_Binput.Size = new System.Drawing.Size(100, 20);
             this.txt_Binput.TabIndex = 8;
             this.txt_Binput.Visible = false;
-            this.txt_Binput.TextChanged += new System.EventHandler(this.txt_Binput_TextChanged);
+            this.txt_Binput.TextChanged += new System.EventHandler(this.txt_InputTextChanged);
             // 
             // radioButton3
             // 

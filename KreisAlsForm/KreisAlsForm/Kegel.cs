@@ -16,7 +16,8 @@ namespace KreisAlsForm
         public Kegel(double Radius, double Hoehe) : base(Radius)
         {
             this.Hoehe = Hoehe;
-            this.Derkegelhalt = Math.PI * this.getRadius() * Math.Sqrt((Math.Pow(this.getRadius(), 2) + Math.Pow(this.Hoehe, 2)));
+            berechneKegel();
+            
         }
         public double Hoehe
         {
@@ -69,9 +70,14 @@ namespace KreisAlsForm
                 derkegelhalt = value;
             }
         }
+        private void berechneKegel()
+        {
+            this.Derkegelhalt = Math.PI * this.getRadius() * Math.Sqrt((Math.Pow(this.getRadius(), 2) + Math.Pow(this.Hoehe, 2)));
+        }
 
         public void berechneOberflache()
         {
+            berechneKegel();
             Oberflache = base.getFlaeche() + Derkegelhalt;
         }
         public void berechneVolumen()
