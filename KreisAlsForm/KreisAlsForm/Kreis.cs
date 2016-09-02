@@ -14,14 +14,17 @@ namespace KreisAlsForm
         {
             this.Radius = radius;
         }
+
         public double getFlaeche()
         {
             return Math.PI * (this.Radius*this.Radius);
         }
+
         public double getUmfang()
         {
             return 2 * Math.PI * this.Radius;
         }
+
         public bool setRadius(double Radius)
         {
             if (Radius > 0.0)
@@ -34,6 +37,7 @@ namespace KreisAlsForm
             }
             
         }
+
         public double getRadius()
         {
             return this.Radius;

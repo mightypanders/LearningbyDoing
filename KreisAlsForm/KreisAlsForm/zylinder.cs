@@ -60,6 +60,7 @@ namespace KreisAlsForm
         {
             this.Oberflache = 2 * this.getFlaeche() + this.getUmfang() + this.Hoehe;
         }
+
         public void berechneVolumen()
         {
             this.Volumen = this.getFlaeche() * this.Hoehe;

@@ -11,14 +11,15 @@ namespace KreisAlsForm
         private double hoehe;
         private double oberflache;
         private double volumen;
-        private double derkegelhalt;
+        private double mantelflache;
 
         public Kegel(double Radius, double Hoehe) : base(Radius)
         {
             this.Hoehe = Hoehe;
-            berechneKegel();
+            berechnMantel();
             
         }
+
         public double Hoehe
         {
             get
@@ -58,28 +59,30 @@ namespace KreisAlsForm
             }
         }
 
-        public double Derkegelhalt
+        public double Manteflache
         {
             get
             {
-                return derkegelhalt;
+                return mantelflache;
             }
 
             set
             {
-                derkegelhalt = value;
+                mantelflache = value;
             }
         }
-        private void berechneKegel()
+
+        private void berechnMantel()
         {
-            this.Derkegelhalt = Math.PI * this.getRadius() * Math.Sqrt((Math.Pow(this.getRadius(), 2) + Math.Pow(this.Hoehe, 2)));
+            this.Manteflache = Math.PI * this.getRadius() * Math.Sqrt((Math.Pow(this.getRadius(), 2) + Math.Pow(this.Hoehe, 2)));
         }
 
         public void berechneOberflache()
         {
-            berechneKegel();
-            Oberflache = base.getFlaeche() + Derkegelhalt;
+            berechnMantel();
+            Oberflache = base.getFlaeche() + Manteflache;
         }
+
         public void berechneVolumen()
         {
             this.Volumen = (this.Hoehe / 3) * this.getFlaeche();
