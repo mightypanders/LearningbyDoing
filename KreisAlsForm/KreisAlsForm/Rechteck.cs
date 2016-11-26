@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace KreisAlsForm
 {
-    class Rechteck
+    class Rechteck : Geo2DObject
     {
         private double SeiteA = 0.0;
         private double SeiteB = 0.0;
+        private double Flaeche = 0.0;
+        private double Umfang = 0.0;
 
         public Rechteck(double SeiteA, double SeiteB)
         {
@@ -18,12 +20,13 @@ namespace KreisAlsForm
         }
         public double getFlache()
         {
-            return SeiteB * SeiteA;
+            return Flaeche;
         }
         public double getUmfang()
         {
-            return SeiteA * 2 + SeiteB * 2;
+            return Umfang;
         }
+        
         public void setSeiteA(double SeiteA)
         {
             if (SeiteA>0.0)
@@ -41,6 +44,22 @@ namespace KreisAlsForm
         public double getSeiteB()
         {
             return this.SeiteB;
+        }
+
+        public void berechneFlaeche()
+        {
+            this.Flaeche = SeiteB * SeiteA;
+        }
+
+        public void berechneUmfang()
+        {
+            this.Umfang = SeiteA * 2 + SeiteB * 2;
+        }
+
+        public void berechneAlles()
+        {
+            this.berechneFlaeche();
+            this.berechneUmfang();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KreisAlsForm
 {
-    class Kugel : Kreis
+    class Kugel : Kreis, Geo3DObject
     {
         private double oberflache;
         private double volumen;
@@ -52,6 +52,12 @@ namespace KreisAlsForm
             this.Volumen = (4 / 3) * base.getFlaeche() * base.getRadius();
         }
 
+        new public void berechneAlles()
+        {
+            base.berechneAlles();
+            berechneOberflaeche();
+            berechneVolumen();
+        }
 
-    }
+        }
 }

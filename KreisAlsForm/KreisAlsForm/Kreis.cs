@@ -6,23 +6,41 @@ using System.Threading.Tasks;
 
 namespace KreisAlsForm
 {
-    class Kreis
+    class Kreis : c_Geo2DObject
     {
         private double Radius = 0.0;
+        private double Flache = 0.0;
+        private double Umfang = 0.0;
 
         public Kreis(double radius)
         {
             this.Radius = radius;
         }
 
+        override public void berechneFlaeche()
+        {
+            this.Flache = Math.PI * (this.Radius * this.Radius);
+        }
+
+        override public void berechneUmfang()
+        {
+            this.Umfang = 2 * Math.PI * this.Radius;
+        }
+
+        override public void berechneAlles()
+        {
+            this.berechneFlaeche();
+            this.berechneUmfang();
+        }
+
         public double getFlaeche()
         {
-            return Math.PI * (this.Radius*this.Radius);
+            return Flache;
         }
 
         public double getUmfang()
         {
-            return 2 * Math.PI * this.Radius;
+            return Umfang;
         }
 
         public bool setRadius(double Radius)

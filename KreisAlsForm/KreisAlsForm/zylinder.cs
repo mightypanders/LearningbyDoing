@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KreisAlsForm
 {
-    class Zylinder : Kreis
+    class Zylinder : Kreis, Geo3DObject
     {
         double oberflache;
         double volumen;
@@ -56,7 +56,7 @@ namespace KreisAlsForm
             }
         }
 
-        public void berechneOberflache()
+        public void berechneOberflaeche()
         {
             this.Oberflache = 2 * this.getFlaeche() + this.getUmfang() + this.Hoehe;
         }
@@ -64,6 +64,13 @@ namespace KreisAlsForm
         public void berechneVolumen()
         {
             this.Volumen = this.getFlaeche() * this.Hoehe;
+        }
+
+        new public void berechneAlles()
+        {
+            base.berechneAlles();
+            berechneOberflaeche();
+            berechneVolumen();
         }
     }
 }

@@ -87,5 +87,13 @@ namespace KreisAlsForm
         {
             this.Volumen = (this.Hoehe / 3) * this.getFlaeche();
         }
+
+        new public void berechneAlles()
+        {
+            base.berechneAlles();
+            berechnMantel();
+            berechneOberflache();
+            berechneVolumen();
+        }
     }
 }

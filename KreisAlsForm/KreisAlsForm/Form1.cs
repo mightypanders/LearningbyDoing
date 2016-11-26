@@ -61,6 +61,7 @@ namespace KreisAlsForm
             double.TryParse(txt_Radinput.Text, out InputLinks);
 
             kreis.setRadius(InputLinks);
+            kreis.berechneAlles();
 
             zeigeWerte(kreis.getFlaeche().ToString(), kreis.getUmfang().ToString(), "", "");
         }
@@ -74,6 +75,7 @@ namespace KreisAlsForm
 
             rechteck.setSeiteA(InputLinks);
             rechteck.setSeiteB(InputRechts);
+            rechteck.berechneAlles();
 
             zeigeWerte(rechteck.getFlache().ToString(), rechteck.getUmfang().ToString(), "", "");
         }
@@ -86,8 +88,7 @@ namespace KreisAlsForm
             double.TryParse(txt_Binput.Text, out InputRechts);
 
             kugel.setRadius(InputLinks);
-            kugel.berechneOberflaeche();
-            kugel.berechneVolumen();
+            kugel.berechneAlles();
 
             zeigeWerte(kugel.getFlaeche().ToString(), kugel.getUmfang().ToString(), kugel.Volumen.ToString(), kugel.Oberflache.ToString());
         }
@@ -100,8 +101,7 @@ namespace KreisAlsForm
 
             kegel.setRadius(InputLinks);
             kegel.Hoehe = InputRechts;
-            kegel.berechneVolumen();
-            kegel.berechneOberflache();
+            kegel.berechneAlles();
 
             zeigeWerte(kegel.getFlaeche().ToString(), kegel.getUmfang().ToString(), kegel.Volumen.ToString(), kegel.Oberflache.ToString());
         }
@@ -114,8 +114,7 @@ namespace KreisAlsForm
 
             zylinder.setRadius(InputLinks);
             zylinder.Hoehe = InputRechts;
-            zylinder.berechneOberflache();
-            zylinder.berechneVolumen();
+            zylinder.berechneAlles();
 
             zeigeWerte(zylinder.getFlaeche().ToString(), zylinder.getUmfang().ToString(), zylinder.Volumen.ToString(), zylinder.Oberflache.ToString());
         }
