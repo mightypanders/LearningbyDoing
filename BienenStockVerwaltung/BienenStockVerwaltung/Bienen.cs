@@ -2,14 +2,33 @@
 {
     public class Bienen
     {
+        string bienenname;
 
+        public Bienen(string name)
+        {
+            Bienenname = name;
+        }
+#region properties
+        public string Bienenname
+        {
+            get
+            {
+                return bienenname;
+            }
+
+            set
+            {
+                bienenname = value;
+            }
+        }
+        #endregion
     }
     public class Bienenkoenigin : Bienen
     {
         private Arbeitsbiene[] arbeiter;
         private int schichtNummer;
 
-        public Bienenkoenigin(Arbeitsbiene[] arbeiter)
+        public Bienenkoenigin(Arbeitsbiene[] arbeiter,string name):base(name)
         {
             this.arbeiter = arbeiter;
         }
@@ -115,11 +134,11 @@
             }
         }
         #endregion
-        public Arbeitsbiene()
+        public Arbeitsbiene(string name):base(name)
         {
 
         }
-        public Arbeitsbiene(string[] moeglicheArbeiten)
+        public Arbeitsbiene(string name, string[] moeglicheArbeiten):base(name)
         {
             this.moeglicheArbeiten = moeglicheArbeiten;
         }
