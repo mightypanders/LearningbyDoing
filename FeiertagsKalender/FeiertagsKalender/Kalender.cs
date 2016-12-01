@@ -18,6 +18,10 @@ namespace FeiertagsKalender
         {
             InitializeComponent();
             dat = new T_Datum();
+            foreach (DataGridViewColumn item in this.dataGridView1.Columns)
+            {
+                item.ReadOnly = true;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -25,13 +29,13 @@ namespace FeiertagsKalender
             string temp = dat.getWochentag((int)UD_Tag.Value, (int)UD_Monat.Value, (int)UD_Jahr.Value);
             this.lbl_wochentag.Text = temp;
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        
+        private void showMonat(object sender, EventArgs e)
         {
-
+            dat.showMonat((int)UD_Monat.Value, (int)UD_Jahr.Value);
         }
 
-        private void btn_CheckJahr_Click(object sender, EventArgs e)
+        private void CheckJahr(object sender, EventArgs e)
         {
             if (dat.testSchaltjahr((int)UD_Jahr.Value))
             {

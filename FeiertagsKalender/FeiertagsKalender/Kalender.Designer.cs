@@ -28,29 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_Wochentag = new System.Windows.Forms.Button();
             this.UD_Tag = new System.Windows.Forms.NumericUpDown();
             this.UD_Jahr = new System.Windows.Forms.NumericUpDown();
             this.UD_Monat = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_wochentag = new System.Windows.Forms.Label();
-            this.btn_CheckJahr = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.lbl_Schaltjahr = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btn_showMonat = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.UD_Tag)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UD_Jahr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UD_Monat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btn_Wochentag
-            // 
-            this.btn_Wochentag.Location = new System.Drawing.Point(173, 27);
-            this.btn_Wochentag.Name = "btn_Wochentag";
-            this.btn_Wochentag.Size = new System.Drawing.Size(112, 30);
-            this.btn_Wochentag.TabIndex = 4;
-            this.btn_Wochentag.Text = "Ermittle Wochentag";
-            this.btn_Wochentag.UseVisualStyleBackColor = true;
-            this.btn_Wochentag.Click += new System.EventHandler(this.button1_Click);
             // 
             // UD_Tag
             // 
@@ -96,7 +94,6 @@
             this.label1.Size = new System.Drawing.Size(66, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "Wochentag:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lbl_wochentag
             // 
@@ -105,16 +102,6 @@
             this.lbl_wochentag.Name = "lbl_wochentag";
             this.lbl_wochentag.Size = new System.Drawing.Size(0, 13);
             this.lbl_wochentag.TabIndex = 8;
-            // 
-            // btn_CheckJahr
-            // 
-            this.btn_CheckJahr.Location = new System.Drawing.Point(173, 63);
-            this.btn_CheckJahr.Name = "btn_CheckJahr";
-            this.btn_CheckJahr.Size = new System.Drawing.Size(112, 30);
-            this.btn_CheckJahr.TabIndex = 11;
-            this.btn_CheckJahr.Text = "Ermittle Schaltjahr";
-            this.btn_CheckJahr.UseVisualStyleBackColor = true;
-            this.btn_CheckJahr.Click += new System.EventHandler(this.btn_CheckJahr_Click);
             // 
             // label2
             // 
@@ -133,40 +120,124 @@
             this.lbl_Schaltjahr.Size = new System.Drawing.Size(0, 13);
             this.lbl_Schaltjahr.TabIndex = 13;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7});
+            this.dataGridView1.Location = new System.Drawing.Point(12, 61);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(281, 244);
+            this.dataGridView1.TabIndex = 14;
+            // 
+            // btn_showMonat
+            // 
+            this.btn_showMonat.Location = new System.Drawing.Point(175, 34);
+            this.btn_showMonat.Name = "btn_showMonat";
+            this.btn_showMonat.Size = new System.Drawing.Size(75, 23);
+            this.btn_showMonat.TabIndex = 15;
+            this.btn_showMonat.Text = "Zeige Monat";
+            this.btn_showMonat.UseVisualStyleBackColor = true;
+            this.btn_showMonat.Click += new System.EventHandler(this.showMonat);
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column1.HeaderText = "M";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 41;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column2.HeaderText = "D";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 40;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column3.HeaderText = "M";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 41;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column4.HeaderText = "D";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 40;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column5.HeaderText = "F";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 38;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column6.HeaderText = "S";
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 39;
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column7.HeaderText = "S";
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 39;
+            // 
             // Kalender
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(327, 261);
+            this.ClientSize = new System.Drawing.Size(302, 317);
+            this.Controls.Add(this.btn_showMonat);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lbl_Schaltjahr);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btn_CheckJahr);
             this.Controls.Add(this.lbl_wochentag);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.UD_Monat);
             this.Controls.Add(this.UD_Jahr);
             this.Controls.Add(this.UD_Tag);
-            this.Controls.Add(this.btn_Wochentag);
             this.Name = "Kalender";
             this.Text = "Kalender";
             ((System.ComponentModel.ISupportInitialize)(this.UD_Tag)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UD_Jahr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UD_Monat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btn_Wochentag;
         private System.Windows.Forms.NumericUpDown UD_Tag;
         private System.Windows.Forms.NumericUpDown UD_Jahr;
         private System.Windows.Forms.NumericUpDown UD_Monat;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_wochentag;
-        private System.Windows.Forms.Button btn_CheckJahr;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbl_Schaltjahr;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btn_showMonat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }
 
