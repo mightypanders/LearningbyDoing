@@ -12,8 +12,8 @@ namespace BienenStockVerwaltung
         public Form1()
         {
             InitializeComponent();
-            arbeiter[0] = new Arbeitsbiene(new string[] { "Nektar sammeln" });
-            Koenigin = new Bienenkoenigin(arbeiter);
+            arbeiter[0] = new Arbeitsbiene(,new string[] { "Nektar sammeln" });
+            Koenigin = new Bienenkoenigin(arbeiter,"Königin");
         }
 
         private void button2_Click(object sender, EventArgs e)
