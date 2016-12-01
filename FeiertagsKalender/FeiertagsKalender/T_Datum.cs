@@ -80,10 +80,24 @@ namespace FeiertagsKalender
             int temp = (lTag + (((lMonat+1) * 26) / 10) + (lJahr % 100) + ((lJahr % 100) / 4) + 5 - ((lJahr / 100) / 4)) % 7;
             return Enum.GetName(typeof(Wochentag), temp);
         }
-        public bool testSchaltjahr(int Jahr)
+        public bool testSchaltjahr(int lJahr)
         {
-
-            return false;
+            if (lJahr % 400 == 0)
+            {
+                return true;
+            }
+            else if (lJahr % 100 == 0)
+            {
+                return false;
+            }
+            else if (lJahr % 4 == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

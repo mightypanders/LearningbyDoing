@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace FeiertagsKalender
 {
-    public partial class Form1 : Form
+    public partial class Kalender : Form
     {
         T_Datum dat;
 
-        public Form1()
+        public Kalender()
         {
             InitializeComponent();
             dat = new T_Datum();
@@ -22,13 +22,25 @@ namespace FeiertagsKalender
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string temp = dat.getWochentag((int)UP_Tag.Value, (int)UD_Monat.Value, (int)UD_Jahr.Value);
+            string temp = dat.getWochentag((int)UD_Tag.Value, (int)UD_Monat.Value, (int)UD_Jahr.Value);
             this.lbl_wochentag.Text = temp;
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_CheckJahr_Click(object sender, EventArgs e)
+        {
+            if (dat.testSchaltjahr((int)UD_Jahr.Value))
+            {
+                lbl_Schaltjahr.Text = "Ja";
+            }
+            else
+            {
+                lbl_Schaltjahr.Text = "Nein";
+            }
         }
     }
 }
