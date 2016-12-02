@@ -58,9 +58,19 @@
             0,
             0,
             0});
+            this.UD_Tag.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.UD_Tag.Name = "UD_Tag";
             this.UD_Tag.Size = new System.Drawing.Size(33, 20);
             this.UD_Tag.TabIndex = 1;
+            this.UD_Tag.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // UD_Jahr
             // 
@@ -82,9 +92,19 @@
             0,
             0,
             0});
+            this.UD_Monat.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.UD_Monat.Name = "UD_Monat";
             this.UD_Monat.Size = new System.Drawing.Size(41, 20);
             this.UD_Monat.TabIndex = 2;
+            this.UD_Monat.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label1
             // 

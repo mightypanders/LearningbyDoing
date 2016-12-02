@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -68,6 +69,11 @@ namespace FeiertagsKalender
         }
         public string getWochentag(int lTag, int lMonat, int lJahr)
         {
+            int temp = getTagNummer(lTag, lMonat, lJahr);
+            return Enum.GetName(typeof(Wochentag), temp);
+        }
+        public int getTagNummer(int lTag, int lMonat, int lJahr)
+        {
             switch (lMonat)
             {
                 case 1:
@@ -77,8 +83,8 @@ namespace FeiertagsKalender
                 default:
                     break;
             }
-            int temp = (lTag + (((lMonat+1) * 26) / 10) + (lJahr % 100) + ((lJahr % 100) / 4) + 5 - ((lJahr / 100) / 4)) % 7;
-            return Enum.GetName(typeof(Wochentag), temp);
+            int temp = (lTag + (((lMonat + 1) * 26) / 10) + (lJahr % 100) + ((lJahr % 100) / 4) + 5 - ((lJahr / 100) / 4)) % 7;
+            return temp;
         }
         public bool testSchaltjahr(int lJahr)
         {
@@ -101,7 +107,42 @@ namespace FeiertagsKalender
         }
         public void showMonat(int lMonat, int lJahr)
         {
+            int monatstage = MonatsTage(lMonat, lJahr);
+            var monat = MonatsListe(monatstage, lMonat, lJahr);
+        }
+        public ArrayList MonatsListe(int monatstage,int lMonat, int lJahr)
+        {
+            ArrayList monat = new ArrayList();
+            for (int i = 1; i <= monatstage; i++)
+            {
+                monat.Add(getTagNummer(i, lMonat, lJahr));
+            }
+            return monat;
+        }
+        public int MonatsTage(int lMonat, int lJahr)
+        {
+            int tage = 0;
 
+            if (lMonat % 2==0)
+            {
+                if (lMonat == 2)
+                {
+                    if (testSchaltjahr(lJahr))
+                        tage = 29;
+                    else
+                        tage = 28;
+                }
+                else
+                {
+                    tage = 31;
+                }
+            }
+            else
+            {
+                tage = 30;
+            }
+
+            return tage;
         }
     }
 }
