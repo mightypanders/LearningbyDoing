@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FeiertagsKalender
 {
-    class T_Datum
+    public class T_Datum
 
     {
         private int tag;
@@ -65,7 +66,7 @@ namespace FeiertagsKalender
         }
         public void showMonat(int Monat)
         {
-
+            //TODO
         }
         public string getWochentag(int lTag, int lMonat, int lJahr)
         {
@@ -105,44 +106,6 @@ namespace FeiertagsKalender
                 return false;
             }
         }
-        public void showMonat(int lMonat, int lJahr)
-        {
-            int monatstage = MonatsTage(lMonat, lJahr);
-            var monat = MonatsListe(monatstage, lMonat, lJahr);
-        }
-        public ArrayList MonatsListe(int monatstage,int lMonat, int lJahr)
-        {
-            ArrayList monat = new ArrayList();
-            for (int i = 1; i <= monatstage; i++)
-            {
-                monat.Add(getTagNummer(i, lMonat, lJahr));
-            }
-            return monat;
-        }
-        public int MonatsTage(int lMonat, int lJahr)
-        {
-            int tage = 0;
-
-            if (lMonat % 2==0)
-            {
-                if (lMonat == 2)
-                {
-                    if (testSchaltjahr(lJahr))
-                        tage = 29;
-                    else
-                        tage = 28;
-                }
-                else
-                {
-                    tage = 31;
-                }
-            }
-            else
-            {
-                tage = 30;
-            }
-
-            return tage;
-        }
+       
     }
 }
