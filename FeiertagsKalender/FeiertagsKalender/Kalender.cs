@@ -21,10 +21,6 @@ namespace FeiertagsKalender
             InitializeComponent();
             dat = new T_Datum();
             datControl = new Control(dat);
-            //foreach (DataGridViewColumn item in this.dataGridView1.Columns)
-            //{
-            //    item.ReadOnly = true;
-            //}
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -36,14 +32,31 @@ namespace FeiertagsKalender
             this.dataGridView1.Rows.Clear();
             var list = datControl.showMonat((int)UD_Monat.Value, (int)UD_Jahr.Value);
             setupTable(list);
-            //fillTable(list);
+            fillTable(list);
         }
-
         private void fillTable(List<int> list)
         {
-            throw new NotImplementedException();
-        }
+            int startfield = 0;
+            int dayvalue = 1;
+            int endvalue = list.Count;
+            //der erste Tag in der Tagesliste den Code für Samstag oder Sonntag hat
+            //müssen diese "rübergeschoben" werden um die richtige zuordnung des zellen indexes
+            //zu gewährleistens
+            startfield = (list[0] == 1 || list[0] == 0) ? list[0] + 5 : list[0] - 2;
 
+            for (int i = 0; i < this.dataGridView1.Rows.Count; i++)
+            {
+                startfield = (i != 0) ? 0 : startfield;
+                for (int j = startfield; j < this.dataGridView1.Rows[i].Cells.Count; j++)
+                {
+                    this.dataGridView1.Rows[i].Cells[j].Value = dayvalue;
+                    if (dayvalue < endvalue)
+                        dayvalue++;
+                    else
+                        break;
+                }
+            }
+        }
         private void CheckJahr(object sender, EventArgs e)
         {
             lbl_Schaltjahr.Text = dat.testSchaltjahr((int)UD_Jahr.Value) ? "Ja" : "Nein";
@@ -54,7 +67,7 @@ namespace FeiertagsKalender
             {
                 //erzeut eine neue Zeile im GridView wenn ein Montag entdeckt wird
                 // Montag hat den Tagescode == 2
-                if (list[i] == 2 && i != 0 && i != list.Count )
+                if (list[i] == 2 && i != 0 && i != list.Count)
                 {
                     this.dataGridView1.Rows.Add();
                 }
