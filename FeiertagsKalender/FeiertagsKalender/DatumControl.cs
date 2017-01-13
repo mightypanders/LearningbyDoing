@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 
 namespace FeiertagsKalender
@@ -12,16 +13,16 @@ namespace FeiertagsKalender
         {
             dat = _dat;
         }
-        public ArrayList showMonat(int lMonat, int lJahr)
+        public List<int> showMonat(int lMonat, int lJahr)
         {
             int monatstage = MonatsTage(lMonat, lJahr);
             var monat = MonatsListe(monatstage, lMonat, lJahr);
 
             return monat;
         }
-        public ArrayList MonatsListe(int monatstage, int lMonat, int lJahr)
+        public List<int> MonatsListe(int monatstage, int lMonat, int lJahr)
         {
-            ArrayList monat = new ArrayList();
+            List<int> monat = new List<int>();
             for (int i = 1; i <= monatstage; i++)
             {
                 monat.Add(dat.getTagNummer(i, lMonat, lJahr));
@@ -50,17 +51,6 @@ namespace FeiertagsKalender
             }
             return tage;
         }
-        public DataTable makeTable(ArrayList list)
-        {
-            DataTable table = new DataTable();
-            table.NewRow();
-            int i = 1;
-            foreach (int item in list)
-            {
-                table.Rows[(int)(Math.Floor(item / 7.0))][item] = i;
-                i++;
-            }
-            return table;
-        }
+
     }
 }

@@ -36,7 +36,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lbl_Schaltjahr = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btn_showMonat = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +43,7 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_showMonat = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.UD_Tag)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UD_Jahr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UD_Monat)).BeginInit();
@@ -83,6 +83,7 @@
             this.UD_Jahr.Name = "UD_Jahr";
             this.UD_Jahr.Size = new System.Drawing.Size(55, 20);
             this.UD_Jahr.TabIndex = 3;
+            this.UD_Jahr.ValueChanged += new System.EventHandler(this.CheckJahr);
             // 
             // UD_Monat
             // 
@@ -157,16 +158,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(281, 244);
             this.dataGridView1.TabIndex = 14;
             // 
-            // btn_showMonat
-            // 
-            this.btn_showMonat.Location = new System.Drawing.Point(175, 34);
-            this.btn_showMonat.Name = "btn_showMonat";
-            this.btn_showMonat.Size = new System.Drawing.Size(75, 23);
-            this.btn_showMonat.TabIndex = 15;
-            this.btn_showMonat.Text = "Zeige Monat";
-            this.btn_showMonat.UseVisualStyleBackColor = true;
-            this.btn_showMonat.Click += new System.EventHandler(this.showMonat);
-            // 
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -215,6 +206,16 @@
             this.Column7.HeaderText = "S";
             this.Column7.Name = "Column7";
             this.Column7.Width = 39;
+            // 
+            // btn_showMonat
+            // 
+            this.btn_showMonat.Location = new System.Drawing.Point(175, 34);
+            this.btn_showMonat.Name = "btn_showMonat";
+            this.btn_showMonat.Size = new System.Drawing.Size(75, 23);
+            this.btn_showMonat.TabIndex = 15;
+            this.btn_showMonat.Text = "Zeige Monat";
+            this.btn_showMonat.UseVisualStyleBackColor = true;
+            this.btn_showMonat.Click += new System.EventHandler(this.showMonat);
             // 
             // Kalender
             // 

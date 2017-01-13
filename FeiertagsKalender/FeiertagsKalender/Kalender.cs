@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -33,7 +34,7 @@ namespace FeiertagsKalender
         private void showMonat(object sender, EventArgs e)
         {
             var list = datControl.showMonat((int)UD_Monat.Value, (int)UD_Jahr.Value);
-            var table = datControl.makeTable(list);
+            putIntoTable(list);
         }
         private void CheckJahr(object sender, EventArgs e)
         {
@@ -46,5 +47,29 @@ namespace FeiertagsKalender
                 lbl_Schaltjahr.Text = "Nein";
             }
         }
+        public DataTable makeTable(List<int> list)
+        {
+            DataTable table = new DataTable();
+            table.NewRow();
+            int i = 1;
+            foreach (int item in list)
+            {
+                table.Rows[(int)(Math.Floor(item / 7.0))][item] = i;
+                i++;
+            }
+            return table;
+        }
+        public void putIntoTable(List<int> list)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.WriteLine(list[i]);
+                if (list[i] == 2 && i != 0 && i != list.Count-1)
+                {
+                    Console.WriteLine("WOCHENBRUCH");
+                }
+            }
+        }
     }
 }
+

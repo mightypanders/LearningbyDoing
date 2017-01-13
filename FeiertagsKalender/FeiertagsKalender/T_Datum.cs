@@ -14,15 +14,15 @@ namespace FeiertagsKalender
         private int tag;
         private int monat;
         private int jahr;
-        private enum Wochentag
+        public enum Wochentag
         {
-            Samstag =0,
+            Samstag = 0,
             Sonntag = 1,
             Montag,
             Dienstag,
             Mittwoch,
             Donnerstag,
-            Freitag            
+            Freitag
         }
         public int Tag
         {
@@ -106,6 +106,6 @@ namespace FeiertagsKalender
                 return false;
             }
         }
-       
+
     }
 }
