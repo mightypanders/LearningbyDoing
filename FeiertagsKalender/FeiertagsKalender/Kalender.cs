@@ -21,10 +21,10 @@ namespace FeiertagsKalender
             InitializeComponent();
             dat = new T_Datum();
             datControl = new Control(dat);
-            foreach (DataGridViewColumn item in this.dataGridView1.Columns)
-            {
-                item.ReadOnly = true;
-            }
+            //foreach (DataGridViewColumn item in this.dataGridView1.Columns)
+            //{
+            //    item.ReadOnly = true;
+            //}
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -35,41 +35,26 @@ namespace FeiertagsKalender
         {
             this.dataGridView1.Rows.Clear();
             var list = datControl.showMonat((int)UD_Monat.Value, (int)UD_Jahr.Value);
-            putIntoTable(list);
+            setupTable(list);
+            //fillTable(list);
         }
+
+        private void fillTable(List<int> list)
+        {
+            throw new NotImplementedException();
+        }
+
         private void CheckJahr(object sender, EventArgs e)
         {
-            if (dat.testSchaltjahr((int)UD_Jahr.Value))
-            {
-                lbl_Schaltjahr.Text = "Ja";
-            }
-            else
-            {
-                lbl_Schaltjahr.Text = "Nein";
-            }
+            lbl_Schaltjahr.Text = dat.testSchaltjahr((int)UD_Jahr.Value) ? "Ja" : "Nein";
         }
-        public DataTable makeTable(List<int> list)
+        public void setupTable(List<int> list)
         {
-            DataTable table = new DataTable();
-            table.NewRow();
-            int i = 1;
-            foreach (int item in list)
-            {
-                table.Rows[(int)(Math.Floor(item / 7.0))][item] = i;
-                i++;
-            }
-            return table;
-        }
-        public void putIntoTable(List<int> list)
-        {
-            this.dataGridView1.Rows.Add();
             for (int i = 0; i < list.Count; i++)
             {
-                if (list[i] == 0 || list[i] == 1)
-                {
-                    this.dataGridView1.Rows[this.dataGridView1.Rows.Count - 1].Cells[list[i]].Value = i;
-                }
-                if (list[i] == 2 && i != 0 && i != list.Count - 1)
+                //erzeut eine neue Zeile im GridView wenn ein Montag entdeckt wird
+                // Montag hat den Tagescode == 2
+                if (list[i] == 2 && i != 0 && i != list.Count )
                 {
                     this.dataGridView1.Rows.Add();
                 }

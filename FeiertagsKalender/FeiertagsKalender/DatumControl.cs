@@ -41,9 +41,7 @@ namespace FeiertagsKalender
                     tage = 30;
                     break;
                 case 2:
-                    if (dat.testSchaltjahr(lJahr))
-                        tage = 29;
-                    else tage = 28;
+                    tage = (dat.testSchaltjahr(lJahr)) ? 29 : 28;
                     break;
                 default:
                     tage = 31;
