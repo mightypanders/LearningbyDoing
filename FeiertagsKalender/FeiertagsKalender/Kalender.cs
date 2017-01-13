@@ -33,6 +33,7 @@ namespace FeiertagsKalender
         }
         private void showMonat(object sender, EventArgs e)
         {
+            this.dataGridView1.Rows.Clear();
             var list = datControl.showMonat((int)UD_Monat.Value, (int)UD_Jahr.Value);
             putIntoTable(list);
         }
@@ -61,12 +62,13 @@ namespace FeiertagsKalender
         }
         public void putIntoTable(List<int> list)
         {
+            this.dataGridView1.Rows.Add();
             for (int i = 0; i < list.Count; i++)
             {
                 Console.WriteLine(list[i]);
-                if (list[i] == 2 && i != 0 && i != list.Count-1)
+                if (list[i] == 2 && i != 0 && i != list.Count - 1)
                 {
-                    Console.WriteLine("WOCHENBRUCH");
+                    this.dataGridView1.Rows.Add();
                 }
             }
         }
