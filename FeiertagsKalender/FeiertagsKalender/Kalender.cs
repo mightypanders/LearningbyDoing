@@ -65,7 +65,10 @@ namespace FeiertagsKalender
             this.dataGridView1.Rows.Add();
             for (int i = 0; i < list.Count; i++)
             {
-                Console.WriteLine(list[i]);
+                if (list[i] == 0 || list[i] == 1)
+                {
+                    this.dataGridView1.Rows[this.dataGridView1.Rows.Count - 1].Cells[list[i]].Value = i;
+                }
                 if (list[i] == 2 && i != 0 && i != list.Count - 1)
                 {
                     this.dataGridView1.Rows.Add();
