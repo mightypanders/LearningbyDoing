@@ -13,14 +13,20 @@ namespace FeiertagsKalender
         {
             dat = _dat;
         }
-        public List<int> showMonat(int lMonat, int lJahr)
+        /// <summary>
+        /// Gibt die Tage eines Monats als Liste wieder, nach T_Datum.Wochentage codiert
+        /// </summary>
+        /// <param name="lMonat">Monat als int (1-12)</param>
+        /// <param name="lJahr">Jahr als int (0-????)</param>
+        /// <returns>Liste an ints, Werte 0-6, Länge 28-31</returns>
+        public List<int> TagesListe(int lMonat, int lJahr)
         {
-            int monatstage = MonatsTage(lMonat, lJahr);
-            var monat = MonatsListe(monatstage, lMonat, lJahr);
+            int tagesAnzahl = TagAnzahl(lMonat, lJahr);
+            var monat = MonatsListe(tagesAnzahl, lMonat, lJahr);
 
             return monat;
         }
-        public List<int> MonatsListe(int monatstage, int lMonat, int lJahr)
+        private List<int> MonatsListe(int monatstage, int lMonat, int lJahr)
         {
             List<int> monat = new List<int>();
             for (int i = 1; i <= monatstage; i++)
@@ -29,7 +35,12 @@ namespace FeiertagsKalender
             }
             return monat;
         }
-        public int MonatsTage(int lMonat, int lJahr)
+        /// <summary>
+        /// Gibt die Anzahl der Tage in einem Monat zurück
+        /// </summary>
+        /// <param name="lMonat">Monat als int (1-12)</param>
+        /// <param name="lJahr">Jahr als int (0-????)</param>
+        private int TagAnzahl(int lMonat, int lJahr)
         {
             int tage = 0;
             switch (lMonat)

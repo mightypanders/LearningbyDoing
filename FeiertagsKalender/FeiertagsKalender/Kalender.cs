@@ -22,19 +22,8 @@ namespace FeiertagsKalender
             dat = new T_Datum();
             datControl = new Control(dat);
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string temp = dat.getWochentag((int)UD_Tag.Value, (int)UD_Monat.Value, (int)UD_Jahr.Value);
-            this.lbl_wochentag.Text = temp;
-        }
-        private void showMonat(object sender, EventArgs e)
-        {
-            this.dataGridView1.Rows.Clear();
-            var list = datControl.showMonat((int)UD_Monat.Value, (int)UD_Jahr.Value);
-            setupTable(list);
-            fillTable(list);
-        }
-        private void fillTable(List<int> list)
+        #region HauptLogik
+        private void fillTable(List<int> list,int highlightTag)
         {
             int startfield = 0;
             int dayvalue = 1;
@@ -50,16 +39,14 @@ namespace FeiertagsKalender
                 for (int j = startfield; j < this.dataGridView1.Rows[i].Cells.Count; j++)
                 {
                     this.dataGridView1.Rows[i].Cells[j].Value = dayvalue;
+                    if (dayvalue == highlightTag)
+                        selectDay(this.dataGridView1.Rows[i].Cells[j]);
                     if (dayvalue < endvalue)
                         dayvalue++;
                     else
                         break;
                 }
             }
-        }
-        private void CheckJahr(object sender, EventArgs e)
-        {
-            lbl_Schaltjahr.Text = dat.testSchaltjahr((int)UD_Jahr.Value) ? "Ja" : "Nein";
         }
         public void setupTable(List<int> list)
         {
@@ -73,6 +60,32 @@ namespace FeiertagsKalender
                 }
             }
         }
+        #endregion
+        #region Events
+        private void CheckJahr(object sender, EventArgs e)
+        {
+            lbl_Schaltjahr.Text = dat.testSchaltjahr((int)UD_Jahr.Value) ? "Ja" : "Nein";
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string temp = dat.getWochentag((int)UD_Tag.Value, (int)UD_Monat.Value, (int)UD_Jahr.Value);
+            this.lbl_wochentag.Text = temp;
+        }
+        private void showMonat(object sender, EventArgs e)
+        {
+            this.dataGridView1.Rows.Clear();
+            var list = datControl.TagesListe((int)UD_Monat.Value, (int)UD_Jahr.Value);
+            setupTable(list);
+            fillTable(list,(int)this.UD_Tag.Value);
+        }
+        #endregion
+        #region Helfer
+        private void selectDay(DataGridViewCell cell)
+        {
+            cell.Style.BackColor = Color.RoyalBlue;
+            cell.Style.ForeColor = Color.Wheat;
+        }
+        #endregion
     }
 }
 

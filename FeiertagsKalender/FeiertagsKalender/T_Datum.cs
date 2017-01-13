@@ -11,10 +11,11 @@ namespace FeiertagsKalender
     public class T_Datum
 
     {
+        #region Member
         private int tag;
         private int monat;
         private int jahr;
-        public enum Wochentag
+        private enum Wochentag
         {
             Samstag = 0,
             Sonntag = 1,
@@ -24,6 +25,8 @@ namespace FeiertagsKalender
             Donnerstag,
             Freitag
         }
+        #endregion
+        #region Accessoren
         public int Tag
         {
             get
@@ -60,14 +63,12 @@ namespace FeiertagsKalender
                 jahr = value;
             }
         }
+        #endregion
         public T_Datum()
         {
 
         }
-        public void showMonat(int Monat)
-        {
-            //TODO
-        }
+        #region Methoden
         public string getWochentag(int lTag, int lMonat, int lJahr)
         {
             int temp = getTagNummer(lTag, lMonat, lJahr);
@@ -106,6 +107,7 @@ namespace FeiertagsKalender
                 return false;
             }
         }
+        #endregion
 
     }
 }
