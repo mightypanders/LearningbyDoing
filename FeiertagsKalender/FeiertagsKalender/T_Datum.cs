@@ -69,11 +69,25 @@ namespace FeiertagsKalender
 
         }
         #region Methoden
+        /// <summary>
+        /// Übersetzt den Tagescode aus getTagNummer() anhand T_Datum.Wochentag in einen lesbaren Namen
+        /// </summary>
+        /// <param name="lTag"></param>
+        /// <param name="lMonat"></param>
+        /// <param name="lJahr"></param>
+        /// <returns></returns>
         public string getWochentag(int lTag, int lMonat, int lJahr)
         {
             int temp = getTagNummer(lTag, lMonat, lJahr);
             return Enum.GetName(typeof(Wochentag), temp);
         }
+        /// <summary>
+        /// Für ein gegebens Datum wird bestimmt welcher Wochentag es ist.
+        /// </summary>
+        /// <param name="lTag"></param>
+        /// <param name="lMonat"></param>
+        /// <param name="lJahr"></param>
+        /// <returns>Einen Wochentagscode entsprechend T_Datum.Wochentag.</returns>
         public int getTagNummer(int lTag, int lMonat, int lJahr)
         {
             switch (lMonat)
@@ -88,6 +102,11 @@ namespace FeiertagsKalender
             int temp = (lTag + (((lMonat + 1) * 26) / 10) + (lJahr % 100) + ((lJahr % 100) / 4) + 5 - ((lJahr / 100) / 4)) % 7;
             return temp;
         }
+        /// <summary>
+        /// Testet ob das Jahr ein Schaltjahr ist.
+        /// </summary>
+        /// <param name="lJahr">Eine Jahreszahl größer 0</param>
+        /// <returns>True wenn das Jahr ein Schaltjahr ist.</returns>
         public bool testSchaltjahr(int lJahr)
         {
             if (lJahr % 400 == 0)

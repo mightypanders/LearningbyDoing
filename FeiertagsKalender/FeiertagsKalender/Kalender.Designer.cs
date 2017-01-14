@@ -71,6 +71,7 @@
             0,
             0,
             0});
+            this.UD_Tag.ValueChanged += new System.EventHandler(this.showMonat);
             // 
             // UD_Jahr
             // 
@@ -83,7 +84,7 @@
             this.UD_Jahr.Name = "UD_Jahr";
             this.UD_Jahr.Size = new System.Drawing.Size(55, 20);
             this.UD_Jahr.TabIndex = 3;
-            this.UD_Jahr.ValueChanged += new System.EventHandler(this.CheckJahr);
+            this.UD_Jahr.ValueChanged += new System.EventHandler(this.showMonat);
             // 
             // UD_Monat
             // 
@@ -106,6 +107,7 @@
             0,
             0,
             0});
+            this.UD_Monat.ValueChanged += new System.EventHandler(this.showMonat);
             // 
             // label1
             // 
@@ -119,7 +121,7 @@
             // lbl_wochentag
             // 
             this.lbl_wochentag.AutoSize = true;
-            this.lbl_wochentag.Location = new System.Drawing.Point(98, 54);
+            this.lbl_wochentag.Location = new System.Drawing.Point(86, 9);
             this.lbl_wochentag.Name = "lbl_wochentag";
             this.lbl_wochentag.Size = new System.Drawing.Size(0, 13);
             this.lbl_wochentag.TabIndex = 8;
