@@ -158,7 +158,7 @@
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(281, 244);
+            this.dataGridView1.Size = new System.Drawing.Size(281, 155);
             this.dataGridView1.TabIndex = 14;
             // 
             // Column1
@@ -224,7 +224,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 317);
+            this.ClientSize = new System.Drawing.Size(302, 228);
             this.Controls.Add(this.btn_showMonat);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lbl_Schaltjahr);
@@ -235,6 +235,7 @@
             this.Controls.Add(this.UD_Jahr);
             this.Controls.Add(this.UD_Tag);
             this.Name = "Kalender";
+            this.ShowIcon = false;
             this.Text = "Kalender";
             ((System.ComponentModel.ISupportInitialize)(this.UD_Tag)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UD_Jahr)).EndInit();
