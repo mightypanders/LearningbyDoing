@@ -6,10 +6,10 @@ using System.Data;
 namespace FeiertagsKalender
 {
 
-    public class Control
+    public class C_DatumControl
     {
-        T_Datum dat;
-        public Control(T_Datum _dat)
+        private C_Datum dat;
+        public C_DatumControl(C_Datum _dat)
         {
             dat = _dat;
         }

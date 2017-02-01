@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FeiertagsKalender
 {
-    public class T_Datum
+    public class C_Datum
 
     {
         #region Member
@@ -64,7 +64,7 @@ namespace FeiertagsKalender
             }
         }
         #endregion
-        public T_Datum()
+        public C_Datum()
         {
 
         }

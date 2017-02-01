@@ -13,14 +13,14 @@ namespace FeiertagsKalender
 {
     public partial class Kalender : Form
     {
-        T_Datum dat;
-        Control datControl;
+        private C_Datum dat;
+        private C_DatumControl datControl;
 
         public Kalender()
         {
             InitializeComponent();
-            dat = new T_Datum();
-            datControl = new Control(dat);
+            dat = new C_Datum();
+            datControl = new C_DatumControl(dat);
         }
         #region HauptLogik
         /// <summary>
@@ -59,6 +59,7 @@ namespace FeiertagsKalender
         /// <param name="list">Eine Liste von Tagen, codiert in T_Datum.Wochentag Codes</param>
         public void setupTable(List<int> list)
         {
+            this.dataGridView1.Rows.Clear();
             for (int i = 0; i < list.Count; i++)
             {
                 //erzeut eine neue Zeile im GridView wenn ein Montag entdeckt wird
@@ -96,7 +97,6 @@ namespace FeiertagsKalender
         {
             WochentagEinsetzen();
             CheckJahr();
-            this.dataGridView1.Rows.Clear();
             var list = datControl.TagesListe((int)UD_Monat.Value, (int)UD_Jahr.Value);
             setupTable(list);
             fillTable(list,(int)this.UD_Tag.Value);
