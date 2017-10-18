@@ -88,24 +88,6 @@ namespace ThreadingBevolkerung
         {
             while (true)
             {
-                //if (IsWar && this.Count < this.warStarter * 0.80M)
-                //{
-                //    IsWar = false;
-                //}
-                //else
-                //{
-                //    if (ManualWar || (this.Count > this.WarThreshold))
-                //    {
-                //        IsWar = true;
-                //        this.warStarter = this.Count;
-                //        this.WarThreshold = this.Count + this.warOffset * 0.80M;
-                //    }
-                //    else
-                //    {
-                //        IsWar = false;
-                //    }
-                //    Thread.Sleep(UpdateInterval);
-                //}
                 if (IsWar)
                 {
                     if (this.Count < (this.warStarter * 0.8M))
