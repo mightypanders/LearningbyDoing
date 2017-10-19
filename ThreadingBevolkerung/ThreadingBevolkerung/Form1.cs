@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Threading;
 using System.Windows;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace ThreadingBevolkerung
 {
@@ -19,10 +20,12 @@ namespace ThreadingBevolkerung
         public Thread values;
         private Population pop;
         private bool startChanged = false;
+        private Series series;
         public Form1()
         {
             InitializeComponent();
             pop = new Population();
+            series = new Series();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,6 +35,7 @@ namespace ThreadingBevolkerung
             pop.Count = (startChanged) ? this.numericUpDown1.Value : pop.Count;
             pop.StartThreads();
             startChanged = false;
+            series = this.chart1.Series[0];
         }
 
 
@@ -45,6 +49,7 @@ namespace ThreadingBevolkerung
                     this.lblBorn.Text = pop.Born.ToString();
                     this.lblDead.Text = pop.Deceased.ToString();
                     this.lblKrieg.Text = (pop.IsWar) ? "JA" : "Nein";
+                    this.series.Points.Add((double)pop.Count);
                 };
                 Invoke(UpdateLabels);
                 Thread.Sleep(pop.UpdateInterval);
