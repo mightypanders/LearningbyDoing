@@ -17,23 +17,24 @@ namespace ThreadingBevolkerung
     public partial class Form1 : Form
 
     {
-        public Thread values;
-        private Population pop;
+        public Thread _valueThread;
+        private Population _population;
         private bool startChanged = false;
         private Series series;
+
         public Form1()
         {
             InitializeComponent();
-            pop = new Population();
+            _population = new Population();
             series = new Series();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            values = new Thread(() => showValues(true));
-            values.Start();
-            pop.Count = (startChanged) ? this.numericUpDown1.Value : pop.Count;
-            pop.StartThreads();
+            _valueThread = new Thread(() => showValues(true));
+            _valueThread.Start();
+            _population.Count = (startChanged) ? this.numericUpDown1.Value : _population.Count;
+            _population.StartThreads();
             startChanged = false;
             series = this.chart1.Series[0];
         }
@@ -45,14 +46,14 @@ namespace ThreadingBevolkerung
             {
                 MethodInvoker UpdateLabels = delegate
                 {
-                    this.lblPop.Text = pop.Count.ToString();
-                    this.lblBorn.Text = pop.Born.ToString();
-                    this.lblDead.Text = pop.Deceased.ToString();
-                    this.lblKrieg.Text = (pop.IsWar) ? "JA" : "Nein";
-                    this.series.Points.Add((double)pop.Count);
+                    this.lblPop.Text = _population.Count.ToString();
+                    this.lblBorn.Text = _population.Born.ToString();
+                    this.lblDead.Text = _population.Deceased.ToString();
+                    this.lblKrieg.Text = (_population.IsWar) ? "JA" : "Nein";
+                    this.series.Points.Add((double)_population.Count);
                 };
                 Invoke(UpdateLabels);
-                Thread.Sleep(pop.UpdateInterval);
+                Thread.Sleep(_population.UpdateInterval);
             } while (loop);
         }
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
@@ -68,17 +69,17 @@ namespace ThreadingBevolkerung
         private void StopAllThreads()
         {
 
-            if (values != null)
-                values.Abort();
-            pop.StopThreads();
+            if (_valueThread != null)
+                _valueThread.Abort();
+            _population.StopThreads();
         }
         private void button4_Click(object sender, EventArgs e)
         {
             StopAllThreads();
-            pop.Count = 0;
-            pop.Deceased = 0;
-            pop.Born = 0;
-            pop.UpdateInterval = 1000;
+            _population.Count = 0;
+            _population.Deceased = 0;
+            _population.Born = 0;
+            _population.UpdateInterval = 1000;
             numericUpDown2.Value = 1000;
             showValues();
         }
@@ -90,12 +91,12 @@ namespace ThreadingBevolkerung
 
         private void button3_Click(object sender, EventArgs e)
         {
-            pop.ManualWar = !pop.ManualWar;
+            _population.ManualWar = !_population.ManualWar;
         }
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
-            pop.UpdateInterval = (int)numericUpDown2.Value;
+            _population.UpdateInterval = (int)numericUpDown2.Value;
         }
 
     }

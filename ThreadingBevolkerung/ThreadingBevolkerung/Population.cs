@@ -19,8 +19,10 @@ namespace ThreadingBevolkerung
 
         private decimal deathRate = 1.8M;
         private decimal warAddedDeathRate = 2.7M;
-        private decimal birthRate = 4.3M;
         private bool isWar = false;
+
+        private decimal birthRate = 4.3M;
+
         private decimal warThreshold = 500.0M;
         private decimal warOffset = 500.0M;
         private decimal warStarter = 500.0M;
