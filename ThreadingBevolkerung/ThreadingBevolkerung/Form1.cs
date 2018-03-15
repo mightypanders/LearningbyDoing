@@ -56,6 +56,25 @@ namespace ThreadingBevolkerung
                 Thread.Sleep(_population.UpdateInterval);
             } while (loop);
         }
+
+        private void updateChartRange(bool loop = false)
+        {
+            do
+            {
+                MethodInvoker UpdateChart = delegate
+                {
+                    if ((double)this.series.Points.Last().XValue >= this.chart1.ChartAreas[0].AxisX.Maximum * 0.9D)
+                    {
+                        this.chart1.ChartAreas[0].AxisX.Maximum *= 2;
+                    }
+                    if (this.series.Points.Last().YValues[0] >= this.chart1.ChartAreas[0].AxisY.Maximum * 0.9D)
+                    {
+                        this.chart1.ChartAreas[0].AxisY.Maximum *= 2;
+                    }
+                };
+            } while (true);
+        }
+
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             startChanged = true;
@@ -68,7 +87,6 @@ namespace ThreadingBevolkerung
 
         private void StopAllThreads()
         {
-
             if (_valueThread != null)
                 _valueThread.Abort();
             _population.StopThreads();

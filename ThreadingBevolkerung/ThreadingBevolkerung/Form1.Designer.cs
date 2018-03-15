@@ -216,6 +216,8 @@
             // chart1
             // 
             chartArea1.Name = "ChartArea1";
+            chartArea1.AxisX.Maximum = 3000;
+            chartArea1.AxisY.Maximum = 3000;
             this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Location = new System.Drawing.Point(188, 12);
             this.chart1.Name = "chart1";
